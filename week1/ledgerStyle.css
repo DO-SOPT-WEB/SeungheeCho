@@ -97,6 +97,7 @@ i:nth-child(3) {
 
 #list {
   width: 100%;
+  margin-bottom: 2rem;
 }
 
 #list header {
@@ -164,4 +165,28 @@ li {
   margin: 0.5rem;
 
   font-size: 0.8rem;
+}
+
+/* footer */
+footer {
+  position: fixed;
+  bottom: 0;
+
+  width: 100%;
+
+  background-color: rgb(216, 229, 240);
+  text-align: center;
+}
+
+footer > button {
+  width: 4rem;
+  padding: 0.5rem;
+  border: 0px;
+  background-color: rgb(127, 186, 238);
+  color: white;
+  box-shadow: 3px 3px gray 3px;
+  border-radius: 0.7rem;
+
+  font-size: 1.5rem;
+  font-weight: bold;
 }
