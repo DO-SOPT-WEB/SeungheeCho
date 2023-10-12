@@ -53,6 +53,9 @@ a:hover {
 }
 
 .header {
+  position: sticky;
+  top: 0;
+
   padding: 1rem 1.5rem;
 
   background-color: rgb(222, 222, 245);
