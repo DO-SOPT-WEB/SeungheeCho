@@ -8,3 +8,18 @@
 
   font-size: 2rem;
 }
+
+#preview {
+  display: flex;
+  gap: 1rem;
+
+  padding: 1rem;
+
+  overflow: scroll;
+}
+
+#preview img {
+  height: 12rem;
+  width: 10rem;
+  object-fit: cover;
+}
