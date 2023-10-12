@@ -23,3 +23,31 @@
   width: 10rem;
   object-fit: cover;
 }
+
+nav {
+  padding: 2rem;
+  background-color: rgb(232, 232, 255);
+
+  text-align: center;
+}
+
+nav > div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  margin-top: 1rem;
+
+  font-size: 1.5rem;
+}
+
+a {
+  color: rgb(160, 160, 211);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(74, 74, 130);
+  font-weight: bold;
+  text-decoration: underline;
+}
