@@ -114,6 +114,24 @@ i:nth-child(3) {
   border-bottom: 1px solid gainsboro;
 }
 
+input {
+}
+/* 체크박스 커스텀 */
+label {
+  padding: 0.3rem 1rem;
+
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(33, 109, 176);
+
+  color: rgb(33, 109, 176);
+}
+
+input:checked + label {
+  background-color: rgb(33, 109, 176);
+  color: white;
+}
+
 ul {
   display: flex;
   flex-direction: column;
@@ -147,6 +165,11 @@ li {
 
   font-size: 1.1rem;
   font-weight: 600;
+
+  /* 말줄임표 */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .minus_price {
