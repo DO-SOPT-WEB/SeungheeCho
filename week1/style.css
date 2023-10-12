@@ -1,5 +1,10 @@
 @import "reset.css";
 
+/* 스크롤 부드럽게 */
+html {
+  scroll-behavior: smooth;
+}
+
 #title {
   padding: 2rem;
 
@@ -156,4 +161,6 @@ footer {
   font-size: 2.5rem;
 
   cursor: pointer;
+
+  text-decoration: none;
 }
