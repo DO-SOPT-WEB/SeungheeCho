@@ -89,7 +89,9 @@ a:hover {
 }
 
 #monkey img {
-  width: 18%;
+  width: 20rem;
+  aspect-ratio: 1/1;
+  flex-grow: 1;
   object-fit: cover;
 }
 
