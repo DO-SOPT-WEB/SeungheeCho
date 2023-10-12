@@ -83,6 +83,8 @@ i:nth-child(3) {
   gap: 2rem;
   align-items: center;
 
+  margin-top: 1rem;
+
   font-size: 1.5rem;
 }
 
@@ -95,4 +97,18 @@ i:nth-child(3) {
 
 #list {
   width: 100%;
+}
+
+#list header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.5rem;
+  background-color: white;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  border-bottom: 1px solid gainsboro;
 }
