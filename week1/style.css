@@ -1,4 +1,10 @@
-img {
-  width: 200px;
-  height: 200px;
+@import "reset.css";
+
+#title {
+  padding: 2rem;
+
+  background-color: rgb(46, 46, 130);
+  color: white;
+
+  font-size: 2rem;
 }
