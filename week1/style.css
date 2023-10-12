@@ -77,3 +77,28 @@ a:hover {
   width: 19%;
   object-fit: cover;
 }
+
+#dog section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+
+  padding: 2rem;
+}
+#dog div {
+  width: 50%;
+}
+#dog div:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+#dog div:nth-child(1) img {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+#dog div:nth-child(2) img {
+  width: 48%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+}
