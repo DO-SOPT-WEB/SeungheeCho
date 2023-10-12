@@ -74,7 +74,7 @@ a:hover {
 }
 
 #monkey img {
-  width: 19%;
+  width: 18%;
   object-fit: cover;
 }
 
@@ -101,4 +101,41 @@ a:hover {
   width: 48%;
   object-fit: cover;
   aspect-ratio: 1/1;
+}
+
+#cat section {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 2fr;
+  grid-template-rows: 18rem 18rem 28rem;
+  gap: 1rem;
+  padding: 3rem;
+
+  height: 20rem;
+}
+
+#cat img:nth-child(1) {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+#cat img:nth-child(2) {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+#cat img:nth-child(3) {
+  grid-column: 3/5;
+  grid-row: 1/3;
+}
+#cat img:nth-child(4) {
+  grid-column: 1/4;
+  grid-row: 3/4;
+}
+#cat img:nth-child(5) {
+  grid-column: 4/5;
+  grid-row: 3/4;
+}
+
+#cat img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
