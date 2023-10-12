@@ -109,8 +109,6 @@ a:hover {
   grid-template-rows: 18rem 18rem 28rem;
   gap: 1rem;
   padding: 3rem;
-
-  height: 20rem;
 }
 
 #cat img:nth-child(1) {
@@ -138,4 +136,12 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+footer {
+  padding: 3rem;
+  background-color: rgb(97, 97, 97);
+
+  text-align: center;
+  color: white;
 }
