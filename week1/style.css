@@ -179,3 +179,35 @@ footer {
 
   text-decoration: none;
 }
+
+/* 애니메이션 */
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes floating-off {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* hover 후 mouse out 되었을 때 자연스럽게 원상복귀 */
+/* 최초 렌더링 시 애니메이션을 실행하고 싶지 않은데... 해당 부분 미해결 */
+#monkey img,
+#dog img {
+  animation: floating-off 0.5s;
+  animation-fill-mode: forwards;
+}
+#monkey img:hover,
+#dog img:hover {
+  animation: floating 0.5s;
+  animation-fill-mode: forwards;
+}
