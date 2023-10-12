@@ -145,3 +145,15 @@ footer {
   text-align: center;
   color: white;
 }
+
+#toTop {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  margin: 1.5rem;
+
+  font-size: 2.5rem;
+
+  cursor: pointer;
+}
