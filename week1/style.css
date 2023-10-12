@@ -60,3 +60,17 @@ a:hover {
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+#monkey section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+
+  padding: 2rem;
+}
+
+#monkey img {
+  width: 19%;
+  object-fit: cover;
+}
