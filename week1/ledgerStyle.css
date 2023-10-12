@@ -112,3 +112,56 @@ i:nth-child(3) {
 
   border-bottom: 1px solid gainsboro;
 }
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 2rem;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+
+  width: 100%;
+  padding: 1.5rem 2rem;
+
+  background-color: aliceblue;
+
+  border-radius: 1rem;
+}
+
+.category {
+  width: 4rem;
+}
+.place {
+  width: 100%;
+  margin-left: 1rem;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.minus_price {
+  color: red;
+}
+
+.plus_price {
+  color: blue;
+}
+
+.close_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin: 0.5rem;
+
+  font-size: 0.8rem;
+}
