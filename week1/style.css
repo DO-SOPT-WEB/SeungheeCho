@@ -22,6 +22,16 @@ html {
 
   overflow: scroll;
 }
+#preview::-webkit-scrollbar {
+  height: 0.5rem;
+}
+#preview::-webkit-scrollbar-thumb {
+  background: rgb(205, 205, 240);
+  border-radius: 1rem;
+}
+#preview::-webkit-scrollbar-track {
+  background: rgb(247, 247, 255);
+}
 
 #preview img {
   height: 12rem;
