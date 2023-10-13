@@ -115,6 +115,7 @@ i:nth-child(3) {
 }
 
 input {
+  display: none;
 }
 /* 체크박스 커스텀 */
 label {
