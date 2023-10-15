@@ -140,6 +140,9 @@ ul {
   gap: 0.5rem;
 
   padding: 2rem;
+
+  height: 25rem;
+  overflow: scroll;
 }
 
 li {
