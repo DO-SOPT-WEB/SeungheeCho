@@ -26,6 +26,8 @@ const HISTORY_LIST = [
   },
 ];
 
+const historyList = HISTORY_LIST;
+
 // 상수 데이터를 통해 내역 리스트 렌더링 함수
 function makeListElement(id, category, place, price) {
   const categorySpan = document.createElement("span");
@@ -40,7 +42,11 @@ function makeListElement(id, category, place, price) {
 
   const closeIcon = document.createElement("i");
   closeIcon.textContent = "x";
-  closeIcon.classList = ["close_btn", id];
+  closeIcon.className = `close_btn ${id}`;
+  // 삭제하기 기능 추가
+  closeIcon.addEventListener("click", function () {
+    handleDelete(id);
+  });
 
   const li = document.createElement("li");
   li.className = price < 0 ? "minus_item" : "plus_item";
@@ -57,9 +63,12 @@ function makeListElement(id, category, place, price) {
 function makeMyAssetElement() {
   let plus = 0;
   let minus = 0;
-  HISTORY_LIST.forEach((el) => {
+  historyList.forEach((el) => {
     el.price > 0 ? (plus += el.price) : (minus -= el.price);
   });
+
+  const myAssetH2 = document.createElement("h2");
+  myAssetH2.textContent = "나의 자산";
 
   const myTotalAsset = document.createElement("p");
   myTotalAsset.textContent = (plus - minus).toLocaleString();
@@ -84,6 +93,8 @@ function makeMyAssetElement() {
   myAssetDiv.appendChild(minusSpan);
 
   const myAssetElement = document.querySelectorAll(".my_asset")[0];
+  myAssetElement.innerHTML = ""; // 한번 초기화 후 다시 생성
+  myAssetElement.appendChild(myAssetH2);
   myAssetElement.append(myTotalAsset);
   myAssetElement.append(myAssetDiv);
 }
@@ -115,8 +126,21 @@ minusFilter.addEventListener("click", function () {
   handleFilter();
 });
 
+// 삭제하기
+function handleDelete(id) {
+  historyList.splice(id, 1);
+  render();
+}
+
 // 실제 렌더링
-makeMyAssetElement();
-HISTORY_LIST.forEach((el) => {
-  makeListElement(el.id, el.category, el.place, el.price);
-});
+function render() {
+  makeMyAssetElement();
+  document.querySelector("ul").innerHTML = ""; // 리스트 초기화
+
+  historyList.forEach((el) => {
+    makeListElement(el.id, el.category, el.place, el.price);
+  });
+}
+
+// 실제 렌더링
+render();
