@@ -1,5 +1,3 @@
-@import "reset.css";
-
 /* 스크롤 부드럽게 */
 html {
   scroll-behavior: smooth;
