@@ -1,0 +1,215 @@
+@import "reset.css";
+
+/* 스크롤 부드럽게 */
+html {
+  scroll-behavior: smooth;
+}
+
+#title {
+  padding: 2rem;
+
+  background-color: rgb(46, 46, 130);
+  color: white;
+
+  font-size: 2rem;
+}
+
+#preview {
+  display: flex;
+  gap: 1rem;
+
+  padding: 1rem;
+
+  overflow: scroll;
+}
+#preview::-webkit-scrollbar {
+  height: 0.5rem;
+}
+#preview::-webkit-scrollbar-thumb {
+  background: rgb(205, 205, 240);
+  border-radius: 1rem;
+}
+#preview::-webkit-scrollbar-track {
+  background: rgb(247, 247, 255);
+}
+
+#preview img {
+  height: 12rem;
+  width: 10rem;
+  object-fit: cover;
+}
+
+nav {
+  padding: 2rem;
+  background-color: rgb(232, 232, 255);
+
+  text-align: center;
+}
+
+nav > div {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+
+  margin-top: 1rem;
+
+  font-size: 1.5rem;
+}
+
+a {
+  color: rgb(160, 160, 211);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(74, 74, 130);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+
+  padding: 1rem 1.5rem;
+
+  background-color: rgb(222, 222, 245);
+
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  z-index: 1;
+}
+
+#monkey section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+
+  padding: 2rem;
+}
+
+#monkey img {
+  width: 20rem;
+  aspect-ratio: 1/1;
+  flex-grow: 1;
+  object-fit: cover;
+}
+
+#dog section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  padding: 2rem;
+}
+#dog div {
+  width: 30rem;
+  flex-grow: 1;
+}
+#dog div:nth-child(2) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+#dog div:nth-child(1) img {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+#dog div:nth-child(2) img {
+  width: 15rem;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  flex-grow: 1;
+}
+
+#cat section {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 2fr;
+  grid-template-rows: 18rem 18rem 28rem;
+  gap: 1rem;
+  padding: 3rem;
+}
+
+#cat img:nth-child(1) {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+#cat img:nth-child(2) {
+  grid-column: 1/3;
+  grid-row: 2/3;
+}
+#cat img:nth-child(3) {
+  grid-column: 3/5;
+  grid-row: 1/3;
+}
+#cat img:nth-child(4) {
+  grid-column: 1/4;
+  grid-row: 3/4;
+}
+#cat img:nth-child(5) {
+  grid-column: 4/5;
+  grid-row: 3/4;
+}
+
+#cat img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+footer {
+  padding: 3rem;
+  background-color: rgb(97, 97, 97);
+
+  text-align: center;
+  color: white;
+}
+
+#toTop {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  margin: 1.5rem;
+
+  font-size: 2.5rem;
+
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+/* 애니메이션 */
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes floating-off {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* hover 후 mouse out 되었을 때 자연스럽게 원상복귀 */
+/* 최초 렌더링 시 애니메이션을 실행하고 싶지 않은데... 해당 부분 미해결 */
+#monkey img,
+#dog img {
+  animation: floating-off 0.5s;
+  animation-fill-mode: forwards;
+}
+#monkey img:hover,
+#dog img:hover {
+  animation: floating 0.5s;
+  animation-fill-mode: forwards;
+}
