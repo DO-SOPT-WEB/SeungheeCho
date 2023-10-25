@@ -1,21 +1,25 @@
 const INIT_BALANCE = 0;
 const HISTORY_LIST = [
   {
+    id: 0,
     category: "식비",
     place: "청년다방청년다방청년다방청년다방청년다방청년다방",
     price: -26500,
   },
   {
+    id: 1,
     category: "식비",
     place: "빽다방",
     price: -7000,
   },
   {
+    id: 2,
     category: "교통",
     place: "신한체크교통",
     price: -83350,
   },
   {
+    id: 3,
     category: "월급",
     place: "(주)뫄뫄랩스",
     price: +5000000,
