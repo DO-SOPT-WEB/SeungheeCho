@@ -85,25 +85,31 @@ function makeMyAssetElement() {
 }
 
 // 수입/지출 필터링 함수
+// input박스의 checked 값을 받아오는 방식 -> flag변수 사용 방식으로 변경
+let plusChecked = true;
+let minusChecked = true;
 
-function handleFilter(e) {
-  const plusInput = document.querySelector("#plus_p");
-  const minusInput = document.querySelector("#minus_p");
-
+function handleFilter() {
   const plusItems = document.querySelectorAll(".plus_item");
   const minusItems = document.querySelectorAll(".minus_item");
   plusItems.forEach((item) => {
-    item.style.display = plusInput.checked ? "flex" : "none";
+    item.style.display = plusChecked ? "flex" : "none";
   });
   minusItems.forEach((item) => {
-    item.style.display = minusInput.checked ? "flex" : "none";
+    item.style.display = minusChecked ? "flex" : "none";
   });
 }
 
 const plusFilter = document.querySelector('label[for="plus_p"]');
-plusFilter.addEventListener("click", handleFilter);
+plusFilter.addEventListener("click", function () {
+  plusChecked = !plusChecked;
+  handleFilter();
+});
 const minusFilter = document.querySelector('label[for="minus_p"]');
-minusFilter.addEventListener("click", handleFilter);
+minusFilter.addEventListener("click", function () {
+  minusChecked = !minusChecked;
+  handleFilter();
+});
 
 // 실제 렌더링
 makeMyAssetElement();
