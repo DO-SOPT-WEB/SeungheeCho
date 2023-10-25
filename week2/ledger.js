@@ -22,7 +22,7 @@ const HISTORY_LIST = [
   },
 ];
 
-// 상수 데이터를 통해 내역 리스트 렌더링
+// 상수 데이터를 통해 내역 리스트 렌더링 함수
 function makeListElement(category, place, price) {
   const categorySpan = document.createElement("span");
   categorySpan.textContent = category;
@@ -39,6 +39,7 @@ function makeListElement(category, place, price) {
   closeIcon.className = "close_btn";
 
   const li = document.createElement("li");
+  li.className = price < 0 ? "minus_item" : "plus_item";
   li.appendChild(categorySpan);
   li.appendChild(placeSpan);
   li.appendChild(priceSpan);
@@ -48,11 +49,7 @@ function makeListElement(category, place, price) {
   ul.appendChild(li);
 }
 
-HISTORY_LIST.forEach((el) => {
-  makeListElement(el.category, el.place, el.price);
-});
-
-// 상수 데이터를 통해 나의 자산 렌더링
+// 상수 데이터를 통해 나의 자산 렌더링 함수
 function makeMyAssetElement() {
   let plus = 0;
   let minus = 0;
@@ -86,4 +83,30 @@ function makeMyAssetElement() {
   myAssetElement.append(myTotalAsset);
   myAssetElement.append(myAssetDiv);
 }
+
+// 수입/지출 필터링 함수
+
+function handleFilter(e) {
+  const plusInput = document.querySelector("#plus_p");
+  const minusInput = document.querySelector("#minus_p");
+
+  const plusItems = document.querySelectorAll(".plus_item");
+  const minusItems = document.querySelectorAll(".minus_item");
+  plusItems.forEach((item) => {
+    item.style.display = plusInput.checked ? "flex" : "none";
+  });
+  minusItems.forEach((item) => {
+    item.style.display = minusInput.checked ? "flex" : "none";
+  });
+}
+
+const plusFilter = document.querySelector('label[for="plus_p"]');
+plusFilter.addEventListener("click", handleFilter);
+const minusFilter = document.querySelector('label[for="minus_p"]');
+minusFilter.addEventListener("click", handleFilter);
+
+// 실제 렌더링
 makeMyAssetElement();
+HISTORY_LIST.forEach((el) => {
+  makeListElement(el.category, el.place, el.price);
+});
