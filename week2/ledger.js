@@ -27,7 +27,7 @@ const HISTORY_LIST = [
 ];
 
 // 상수 데이터를 통해 내역 리스트 렌더링 함수
-function makeListElement(category, place, price) {
+function makeListElement(id, category, place, price) {
   const categorySpan = document.createElement("span");
   categorySpan.textContent = category;
   categorySpan.className = "category";
@@ -40,7 +40,7 @@ function makeListElement(category, place, price) {
 
   const closeIcon = document.createElement("i");
   closeIcon.textContent = "x";
-  closeIcon.className = "close_btn";
+  closeIcon.classList = ["close_btn", id];
 
   const li = document.createElement("li");
   li.className = price < 0 ? "minus_item" : "plus_item";
@@ -118,5 +118,5 @@ minusFilter.addEventListener("click", function () {
 // 실제 렌더링
 makeMyAssetElement();
 HISTORY_LIST.forEach((el) => {
-  makeListElement(el.category, el.place, el.price);
+  makeListElement(el.id, el.category, el.place, el.price);
 });
