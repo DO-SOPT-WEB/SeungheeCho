@@ -51,3 +51,39 @@ function makeListElement(category, place, price) {
 HISTORY_LIST.forEach((el) => {
   makeListElement(el.category, el.place, el.price);
 });
+
+// 상수 데이터를 통해 나의 자산 렌더링
+function makeMyAssetElement() {
+  let plus = 0;
+  let minus = 0;
+  HISTORY_LIST.forEach((el) => {
+    el.price > 0 ? (plus += el.price) : (minus -= el.price);
+  });
+
+  const myTotalAsset = document.createElement("p");
+  myTotalAsset.textContent = (plus - minus).toLocaleString();
+
+  const myAssetDiv = document.createElement("div");
+  myAssetDiv.className = "detail";
+
+  const plusBtn = document.createElement("i");
+  plusBtn.textContent = "+";
+  const plusSpan = document.createElement("span");
+  plusSpan.textContent = plus.toLocaleString();
+  plusSpan.className = "plus";
+  const minusBtn = document.createElement("i");
+  minusBtn.textContent = "-";
+  const minusSpan = document.createElement("span");
+  minusSpan.textContent = minus.toLocaleString();
+  minusSpan.className = "minus";
+
+  myAssetDiv.appendChild(plusBtn);
+  myAssetDiv.appendChild(plusSpan);
+  myAssetDiv.appendChild(minusBtn);
+  myAssetDiv.appendChild(minusSpan);
+
+  const myAssetElement = document.querySelectorAll(".my_asset")[0];
+  myAssetElement.append(myTotalAsset);
+  myAssetElement.append(myAssetDiv);
+}
+makeMyAssetElement();
