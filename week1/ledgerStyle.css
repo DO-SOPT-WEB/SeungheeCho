@@ -1,0 +1,217 @@
+html {
+  min-width: 375px;
+}
+
+header {
+  padding: 1.5rem;
+  background-color: aliceblue;
+  text-align: center;
+
+  border-bottom: 1px solid black;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* my_asset section */
+.my_asset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  margin: 1rem 3rem;
+  padding: 1rem;
+  background-color: aliceblue;
+
+  border: 0.3rem solid black;
+  border-radius: 0.7rem;
+}
+
+.my_asset > h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.my_asset > p {
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  margin: 0.7rem;
+}
+
+.detail i {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+  background-color: white;
+
+  border-radius: 2rem;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.my_asset span:nth-child(2),
+i:nth-child(1) {
+  color: blue;
+}
+.my_asset span:nth-child(4),
+i:nth-child(3) {
+  color: red;
+}
+
+/* history section */
+.history {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.date {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+
+  margin-top: 1rem;
+
+  font-size: 1.5rem;
+}
+
+.date button {
+  font-size: 1.5rem;
+  border: 0px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.list {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.list header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1.5rem;
+  background-color: white;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  border-bottom: 1px solid gainsboro;
+}
+
+input {
+  display: none;
+}
+/* 체크박스 커스텀 */
+label {
+  padding: 0.3rem 1rem;
+
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(33, 109, 176);
+
+  color: rgb(33, 109, 176);
+}
+
+input:checked + label {
+  background-color: rgb(33, 109, 176);
+  color: white;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 2rem;
+
+  height: 25rem;
+  overflow: scroll;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: relative;
+
+  width: 100%;
+  padding: 1.5rem 2rem;
+
+  background-color: aliceblue;
+
+  border-radius: 1rem;
+}
+
+.category {
+  width: 4rem;
+}
+.place {
+  width: 100%;
+  margin-left: 1rem;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  /* 말줄임표 */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.minus_price {
+  color: red;
+}
+
+.plus_price {
+  color: blue;
+}
+
+.close_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin: 0.5rem;
+
+  font-size: 0.8rem;
+}
+
+/* footer */
+footer {
+  position: fixed;
+  bottom: 0;
+
+  width: 100%;
+
+  background-color: rgb(216, 229, 240);
+  text-align: center;
+}
+
+footer > button {
+  width: 4rem;
+  padding: 0.5rem;
+  border: 0px;
+  background-color: rgb(127, 186, 238);
+  color: white;
+  box-shadow: 3px 3px gray 3px;
+  border-radius: 0.7rem;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+}
