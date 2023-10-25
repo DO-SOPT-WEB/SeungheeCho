@@ -4,30 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="ledgerStyle.css" />
+    <link rel="stylesheet" href="reset.css" />
     <title>숭이의 가계부</title>
   </head>
   <body>
     <header>
       <h1>숭이의 가계부</h1>
     </header>
-    <section id="my">
+    <section class="my_asset">
       <h2>나의 자산</h2>
       <p>9,999,987,000</p>
-      <div id="detail">
+      <div class="detail">
         <i>+</i>
-        <span id="plus">9,999,990,000</span>
+        <span class="plus">9,999,990,000</span>
         <i>-</i>
-        <span id="minus">3,000</span>
+        <span class="minus">3,000</span>
       </div>
     </section>
     <hr />
-    <section id="history">
-      <nav id="date">
+    <section class="history">
+      <nav class="date">
         <button>〈</button>
         <p>8월 4일</p>
         <button>〉</button>
       </nav>
-      <div id="list">
+      <section class="list">
         <header>
           <h2>내역 리스트</h2>
           <form>
@@ -125,10 +126,10 @@
             <i class="close_btn">✕</i>
           </li>
         </ul>
-      </div>
+      </section>
     </section>
     <footer>
-      <button>+</button>
+      <button type="button">+</button>
     </footer>
   </body>
 </html>
