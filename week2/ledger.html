@@ -44,6 +44,29 @@
         </div>
       </section>
     </section>
+    <section class="add_sheet_bg">
+      <section class="add_sheet">
+        <h2>내역 추가</h2>
+        <div>
+          <button type="button">수입</button>
+          <button type="button">지출</button>
+        </div>
+        <form>
+          <label for="category">종류</label>
+          <select id="category">
+            <option value="eat">식비</option>
+            <option value="traffic">교통</option>
+            <option value="salary">월급</option>
+          </select>
+          <label for="add_price">금액</label>
+          <input type="text" id="add_price" />
+          <label for="add_data">내용</label>
+          <input type="text" id="add_data" />
+        </form>
+        <button type="button" class="add_save_btn">저장하기</button>
+        <button type="button" class="add_close_btn">닫기</button>
+      </section>
+    </section>
     <script src="ledger.js"></script>
   </body>
 </html>
