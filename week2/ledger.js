@@ -146,6 +146,98 @@ function handleDelete(id) {
   };
 }
 
+// 추가하기
+function handleAddFilter(idx) {
+  const addFilterBtns = document.querySelectorAll(".add_filter_btn>button");
+  const selectTag = document.querySelector("#category");
+  selectTag.innerHTML = "";
+
+  if (idx === 0) {
+    // 수입
+    addFilterBtns[0].className = "selected_button";
+    addFilterBtns[1].className = "unselected_button";
+
+    const tags = ["월급", "꽁돈"];
+    tags.forEach((el) => {
+      const optionTag = document.createElement("option");
+      optionTag.value = el;
+      optionTag.textContent = el;
+      selectTag.appendChild(optionTag);
+    });
+  } else {
+    addFilterBtns[1].className = "selected_button";
+    addFilterBtns[0].className = "unselected_button";
+
+    const tags = ["식비", "교통"];
+    tags.forEach((el) => {
+      const optionTag = document.createElement("option");
+      optionTag.value = el;
+      optionTag.textContent = el;
+      selectTag.appendChild(optionTag);
+    });
+  }
+}
+
+function handleAddSheet() {
+  let selected_idx = 0; // 수입인지 지출인지
+  const addSheet = document.querySelectorAll(".add_sheet_bg")[0];
+  addSheet.innerHTML = `
+  <section class="add_sheet">
+        <h2>내역 추가</h2>
+        <div class="add_filter_btn">
+          <button type="button" class="selected_button">수입</button>
+          <button type="button" class="unselected_button">지출</button>
+        </div>
+        <form>
+          <label for="category">종류</label>
+          <select id="category">
+            <option value="월급">월급</option>
+            <option value="꽁돈">꽁돈</option>
+          </select>
+          <label for="add_price">금액</label>
+          <input type="number" id="add_price" />
+          <label for="add_data">내용</label>
+          <input type="text" id="add_data" />
+        </form>
+        <button type="button" class="add_save_btn">저장하기</button>
+        <button type="button" class="add_close_btn">닫기</button>
+      </section>
+  `;
+  addSheet.style.display = "flex";
+
+  const addFilterBtns = document.querySelectorAll(".add_filter_btn>button");
+  addFilterBtns.forEach((btn, idx) => {
+    btn.addEventListener("click", function () {
+      selected_idx = idx;
+      handleAddFilter(selected_idx);
+    });
+  });
+
+  const addSaveBtn = document.querySelectorAll(".add_save_btn")[0];
+  const addCloseBtn = document.querySelectorAll(".add_close_btn")[0];
+  addSaveBtn.addEventListener("click", function () {
+    const select = document.querySelector("#category");
+    const option = select.options[select.selectedIndex].value;
+    let price = document.querySelector("#add_price").value;
+    const data = document.querySelector("#add_data").value;
+    price = selected_idx === 1 ? -price : +price; //지출일 경우, 가격 음수처리
+
+    historyList.push({
+      id: historyList.length,
+      category: option,
+      place: data,
+      price: price,
+    });
+    render();
+  });
+  addCloseBtn.addEventListener("click", function () {
+    addSheet.style.display = "none";
+  });
+}
+
+const footerBtn = document.querySelector("footer>button");
+footerBtn.addEventListener("click", handleAddSheet);
+
 // 실제 렌더링
 function render() {
   makeMyAssetElement();

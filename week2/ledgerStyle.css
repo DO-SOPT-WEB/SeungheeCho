@@ -247,7 +247,7 @@ footer > button {
 
 /* 추가 바텀시트 */
 .add_sheet_bg {
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
 
@@ -283,7 +283,7 @@ footer > button {
   font-weight: bold;
 }
 
-.add_sheet > div > button {
+.unselected_button {
   padding: 0.5rem 2rem;
   margin: 0.5rem;
 
@@ -292,13 +292,18 @@ footer > button {
   border-radius: 0.5rem;
 
   font-size: 1.2rem;
-}
-
-.unselected_button {
   background-color: white;
   color: black;
 }
 .selected_button {
+  padding: 0.5rem 2rem;
+  margin: 0.5rem;
+
+  background-color: rgb(255, 255, 255);
+  border: 0;
+  border-radius: 0.5rem;
+
+  font-size: 1.2rem;
   background-color: black;
   color: white;
 }
@@ -319,7 +324,7 @@ footer > button {
 }
 
 .add_sheet > form > select,
-input {
+.add_sheet > form > input {
   display: block;
   width: 100%;
   height: 2rem;
