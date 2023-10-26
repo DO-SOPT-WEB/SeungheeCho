@@ -128,8 +128,22 @@ minusFilter.addEventListener("click", function () {
 
 // 삭제하기
 function handleDelete(id) {
-  historyList.splice(id, 1);
-  render();
+  const deleteModal = document.querySelectorAll(".modal_bg")[0];
+  deleteModal.style.display = "flex"; // 모달 띄우기
+
+  const deleteYesBtn = document.querySelectorAll(".delete_yes")[0];
+  const deleteNoBtn = document.querySelectorAll(".delete_no")[0];
+  deleteYesBtn.onclick = function () {
+    //id요소 하나 삭제
+    historyList.forEach((el, idx) => {
+      el.id === id && historyList.splice(idx, 1);
+    });
+    deleteModal.style.display = "none";
+    render();
+  };
+  deleteNoBtn.onclick = function () {
+    deleteModal.style.display = "none";
+  };
 }
 
 // 실제 렌더링
