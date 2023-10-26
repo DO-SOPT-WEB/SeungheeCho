@@ -229,6 +229,7 @@ function handleAddSheet() {
       price: price,
     });
     render();
+    alert("저장되었습니다");
   });
   addCloseBtn.addEventListener("click", function () {
     addSheet.style.display = "none";
