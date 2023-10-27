@@ -223,7 +223,7 @@ function handleAddSheet() {
     price = selected_idx === 1 ? -price : +price; //지출일 경우, 가격 음수처리
 
     historyList.push({
-      id: historyList.length,
+      id: historyList[historyList.length - 1].id + 1,
       category: option,
       place: data,
       price: price,
