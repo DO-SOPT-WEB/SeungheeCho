@@ -150,7 +150,9 @@ function handleDelete(id) {
 function handleAddFilter(idx) {
   const addFilterBtns = document.querySelectorAll(".add_filter_btn>button");
   const selectTag = document.querySelector("#category");
-  selectTag.innerHTML = "";
+  selectTag.innerHTML = `
+    <option value="미정">--선택--</option>
+  `;
 
   if (idx === 0) {
     // 수입
@@ -191,6 +193,7 @@ function handleAddSheet() {
         <form>
           <label for="category">종류</label>
           <select id="category">
+            <option value="미정">--선택--</option>
             <option value="월급">월급</option>
             <option value="꽁돈">꽁돈</option>
           </select>
