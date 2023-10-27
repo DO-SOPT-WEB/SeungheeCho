@@ -127,7 +127,6 @@ a:hover {
 }
 
 #monkey .item_card:hover .description {
-  display: flex;
   background-color: rgba(0, 0, 0, 0.52);
   color: white;
 }

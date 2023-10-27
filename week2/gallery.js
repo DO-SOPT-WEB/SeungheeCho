@@ -8,6 +8,19 @@ const handleScrollPosition = () => {
 
 window.addEventListener("scroll", handleScrollPosition);
 
+// hover 이벤트
+const itemCard = document.querySelectorAll(".item_card");
+itemCard.forEach((card, idx) => {
+  card.addEventListener("mouseenter", function () {
+    const description = document.querySelectorAll(".description")[idx];
+    description.style.display = "flex";
+  });
+  card.addEventListener("mouseleave", function () {
+    const description = document.querySelectorAll(".description")[idx];
+    description.style.display = "none";
+  });
+});
+
 // 더보기 버튼
 const moreBtn = document.querySelectorAll(".moreBtn");
 const handleMoreBtn = (e) => {
