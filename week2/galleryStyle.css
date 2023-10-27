@@ -12,6 +12,10 @@ html {
   font-size: 2rem;
 }
 
+.preview_wrapper {
+  position: relative;
+}
+
 #preview {
   display: flex;
   align-items: center;
@@ -24,11 +28,11 @@ html {
 }
 
 #preview > i:first-child {
-  position: fixed;
+  position: absolute;
   left: 0;
 }
 #preview > i:last-child {
-  position: fixed;
+  position: absolute;
   right: 0;
 }
 
