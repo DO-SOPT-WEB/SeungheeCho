@@ -206,7 +206,10 @@ function handleAddSheet() {
         <button type="button" class="add_close_btn">닫기</button>
       </section>
   `;
+
+  // 모달 나타나는 효과
   addSheet.style.display = "flex";
+  const addSheetModal = document.querySelectorAll("add_sheet")[0];
 
   const addFilterBtns = document.querySelectorAll(".add_filter_btn>button");
   addFilterBtns.forEach((btn, idx) => {
