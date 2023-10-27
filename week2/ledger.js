@@ -195,7 +195,7 @@ function handleAddSheet() {
             <option value="꽁돈">꽁돈</option>
           </select>
           <label for="add_price">금액</label>
-          <input type="number" id="add_price" />
+          <input type="text" id="add_price" />
           <label for="add_data">내용</label>
           <input type="text" id="add_data" />
         </form>
@@ -233,6 +233,18 @@ function handleAddSheet() {
   });
   addCloseBtn.addEventListener("click", function () {
     addSheet.style.display = "none";
+  });
+
+  // 리스트 추가 input oninput 함수 추가
+  const addPrice = document.querySelector("#add_price");
+  addPrice.addEventListener("input", function () {
+    addPrice.value = (+addPrice.value.replaceAll(",", "")).toLocaleString();
+  });
+  addPrice.addEventListener("keydown", function (e) {
+    if (e.key < "0" || e.key > "9") {
+      alert("숫자만 입력해주세요");
+      e.preventDefault();
+    }
   });
 }
 
