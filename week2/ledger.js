@@ -223,16 +223,23 @@ function handleAddSheet() {
     const option = select.options[select.selectedIndex].value;
     let price = document.querySelector("#add_price").value;
     const data = document.querySelector("#add_data").value;
-    price = selected_idx === 1 ? -price : +price; //지출일 경우, 가격 음수처리
 
-    historyList.push({
-      id: historyList[historyList.length - 1].id + 1,
-      category: option,
-      place: data,
-      price: price,
-    });
-    render();
-    alert("저장되었습니다");
+    if (option == "미정" || price === "" || data === "") {
+      alert("모든 정보를 입력해주세요");
+    } else {
+      price =
+        selected_idx === 1
+          ? -price.replaceAll(",", "")
+          : +price.replaceAll(",", ""); //지출일 경우, 가격 음수처리
+      historyList.push({
+        id: historyList[historyList.length - 1].id + 1,
+        category: option,
+        place: data,
+        price: price,
+      });
+      render();
+      alert("저장되었습니다");
+    }
   });
   addCloseBtn.addEventListener("click", function () {
     addSheet.style.display = "none";
