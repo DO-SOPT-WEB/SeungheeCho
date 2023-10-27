@@ -14,12 +14,25 @@ html {
 
 #preview {
   display: flex;
+  align-items: center;
   gap: 1rem;
 
+  position: relative;
   padding: 1rem;
 
   overflow: scroll;
+  font-size: 2rem;
 }
+
+#preview > i:first-child {
+  position: absolute;
+  left: 0;
+}
+#preview > i:last-child {
+  position: absolute;
+  right: 0;
+}
+
 #preview::-webkit-scrollbar {
   height: 0.5rem;
 }
