@@ -17,3 +17,14 @@ const handleMoreBtn = (e) => {
   currentMoreBtn.style.display = "none";
 };
 moreBtn.forEach((btn) => (btn.onclick = handleMoreBtn));
+
+// preview 화살표 버튼
+const leftBtn = document.querySelector("#preview>i:first-child");
+const rightBtn = document.querySelector("#preview>i:last-child");
+const preview = document.querySelector("#preview");
+leftBtn.addEventListener("click", function () {
+  preview.scrollTo({ left: 0, behavior: "smooth" });
+});
+rightBtn.addEventListener("click", function () {
+  preview.scrollTo({ left: 999, behavior: "smooth" });
+});

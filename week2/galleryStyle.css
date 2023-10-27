@@ -17,7 +17,6 @@ html {
   align-items: center;
   gap: 1rem;
 
-  position: relative;
   padding: 1rem;
 
   overflow: scroll;
@@ -25,11 +24,11 @@ html {
 }
 
 #preview > i:first-child {
-  position: absolute;
+  position: fixed;
   left: 0;
 }
 #preview > i:last-child {
-  position: absolute;
+  position: fixed;
   right: 0;
 }
 
