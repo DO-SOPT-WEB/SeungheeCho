@@ -1,41 +1,13 @@
 import styled from "styled-components";
+import DATA from "../assets";
 
 const ResultMenu = ({ choice }) => {
-  let category, season, color;
-  switch (choice[0]) {
-    case 0:
-      category = "out";
-      break;
-    case 1:
-      category = "top";
-      break;
-    case 2:
-      category = "pants";
-      break;
-    case 3:
-      category = "set";
-      break;
-    case 4:
-      category = "etc";
-  }
-  switch (choice[1]) {
-    case 0:
-      season = "sum";
-      break;
-    case 1:
-      season = "sf";
-      break;
-    case 2:
-      season = "win";
-  }
-  switch (choice[2]) {
-    case 0:
-      color = "black";
-      break;
-    case 1:
-      color = "col";
-  }
-  const PATH = `/src/assets/${category}_${season}_${color}.png`;
+  const RESULT = DATA.find(
+    (el) =>
+      el.category === choice[0] &&
+      el.season === choice[1] &&
+      el.color === choice[2]
+  );
 
   return (
     <>
@@ -43,7 +15,8 @@ const ResultMenu = ({ choice }) => {
         <h2>YOUR BEST ITEM</h2>
       </Header>
       <ResultMain>
-        <img src={PATH} />
+        <img src={RESULT.src} />
+        <p>{RESULT.name}</p>
       </ResultMain>
       <Buttons>
         <button type="button">RETRY</button>
@@ -68,7 +41,9 @@ const ResultMain = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1rem;
+
+  font-weight: bold;
 
   & > img {
     height: 50%;
