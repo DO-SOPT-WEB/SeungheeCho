@@ -1,17 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
-const PickMenu = () => {
+const PickMenu = ({ step, setStep, choice, setChoice }) => {
   const CHOICE = [
     ["아우터", "상의", "하의", "세트", "백&슈즈"],
     ["여름", "봄/가을", "겨울"],
     ["무채색", "컬러풀"],
   ];
-
-  // 선택 단계 state
-  const [step, setStep] = useState(0);
-  // 각 step별 선택한 답변idx 배열 state
-  const [choice, setChoice] = useState([]);
 
   return (
     <>
@@ -44,8 +39,8 @@ const PickMenu = () => {
         <button
           type="button"
           onClick={() => setStep(step + 1)}
-          disabled={step === CHOICE.length - 1 || choice[step] === undefined}>
-          다음으로
+          disabled={choice[step] === undefined}>
+          {step === CHOICE.length - 1 ? "결과보기" : "다음으로"}
         </button>
       </Buttons>
     </>
