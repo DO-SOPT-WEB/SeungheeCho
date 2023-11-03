@@ -35,13 +35,15 @@ const ResultMenu = ({ choice }) => {
     case 1:
       color = "col";
   }
+  const PATH = `/src/assets/${category}_${season}_${color}.png`;
+
   return (
     <>
       <Header>
         <h2>YOUR BEST ITEM</h2>
       </Header>
       <ResultMain>
-        {category}_{season}_{color}
+        <img src={PATH} />
       </ResultMain>
       <Buttons>
         <button type="button">RETRY</button>
@@ -65,7 +67,12 @@ const ResultMain = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
+
+  & > img {
+    height: 50%;
+  }
 `;
 
 const Buttons = styled.div`
