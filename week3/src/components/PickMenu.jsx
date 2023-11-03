@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
 const PickMenu = () => {
-  const CHOICE = [["아우터", "상의", "하의", "세트", "백&슈즈"]];
+  const CHOICE = [
+    ["아우터", "상의", "하의", "세트", "백&슈즈"],
+    ["여름", "봄/가을", "겨울"],
+    ["무채색", "컬러풀"],
+  ];
 
   return (
     <>

@@ -36,6 +36,7 @@ const ContentWrapper = styled.main`
 
   position: relative;
   width: 60%;
+  height: 70%;
   padding: 5rem;
 
   background-color: pink;
