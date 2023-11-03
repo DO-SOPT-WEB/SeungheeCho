@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const PickMenu = () => {
@@ -7,6 +8,9 @@ const PickMenu = () => {
     ["무채색", "컬러풀"],
   ];
 
+  // 선택 단계 state
+  const [step, setStep] = useState(0);
+
   return (
     <>
       <Header>
@@ -14,14 +18,21 @@ const PickMenu = () => {
       </Header>
       <PickMain>
         <ul>
-          {CHOICE[0].map((el) => (
+          {CHOICE[step].map((el) => (
             <PickChoice key={el}>{el}</PickChoice>
           ))}
         </ul>
       </PickMain>
       <Buttons>
-        <button type="button">이전으로</button>
-        <button type="button">다음으로</button>
+        <button type="button" disabled={step === 0}>
+          이전으로
+        </button>
+        <button
+          type="button"
+          onClick={() => setStep(step + 1)}
+          disabled={step === CHOICE.length - 1}>
+          다음으로
+        </button>
       </Buttons>
     </>
   );
@@ -82,6 +93,9 @@ const Buttons = styled.div`
 
     &:hover {
       border: 0.2rem solid black;
+    }
+    &:disabled {
+      border: 0;
     }
   }
 `;
