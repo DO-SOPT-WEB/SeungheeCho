@@ -18,7 +18,11 @@ function App() {
         <Header />
         <ContentWrapper>
           {step === choice.length ? (
-            <ResultMenu choice={choice} />
+            <ResultMenu
+              choice={choice}
+              setChoice={setChoice}
+              setStep={setStep}
+            />
           ) : (
             <PickMenu
               step={step}

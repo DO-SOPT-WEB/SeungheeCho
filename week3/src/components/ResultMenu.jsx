@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import DATA from "../assets";
 
-const ResultMenu = ({ choice }) => {
+const ResultMenu = ({ choice, setChoice, setStep }) => {
   const RESULT = DATA.find(
     (el) =>
       el.category === choice[0] &&
@@ -19,7 +19,14 @@ const ResultMenu = ({ choice }) => {
         <p>{RESULT.name}</p>
       </ResultMain>
       <Buttons>
-        <button type="button">RETRY</button>
+        <button
+          type="button"
+          onClick={() => {
+            setChoice(new Array(3));
+            setStep(0);
+          }}>
+          RETRY
+        </button>
       </Buttons>
     </>
   );
