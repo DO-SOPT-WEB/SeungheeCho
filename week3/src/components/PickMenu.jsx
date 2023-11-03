@@ -24,7 +24,10 @@ const PickMenu = () => {
         </ul>
       </PickMain>
       <Buttons>
-        <button type="button" disabled={step === 0}>
+        <button
+          type="button"
+          onClick={() => setStep(step - 1)}
+          disabled={step === 0}>
           이전으로
         </button>
         <button
