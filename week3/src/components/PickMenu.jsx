@@ -10,6 +10,8 @@ const PickMenu = () => {
 
   // 선택 단계 state
   const [step, setStep] = useState(0);
+  // 각 step별 선택한 답변idx 배열 state
+  const [choice, setChoice] = useState([]);
 
   return (
     <>
@@ -18,8 +20,17 @@ const PickMenu = () => {
       </Header>
       <PickMain>
         <ul>
-          {CHOICE[step].map((el) => (
-            <PickChoice key={el}>{el}</PickChoice>
+          {CHOICE[step].map((el, idx) => (
+            <PickChoice
+              key={el}
+              onClick={() => {
+                const newChoice = [...choice];
+                newChoice[step] = idx;
+                setChoice(newChoice);
+              }}
+              $clicked={choice[step] === idx}>
+              {el}
+            </PickChoice>
           ))}
         </ul>
       </PickMain>
@@ -69,7 +80,8 @@ const PickChoice = styled.li`
   height: 7rem;
 
   background-color: white;
-  border: 0.1rem solid black;
+  border: ${(props) =>
+    props.$clicked ? "0.2rem solid red" : "0.1rem solid black"};
   border-radius: 0.7rem;
 
   &:hover {
