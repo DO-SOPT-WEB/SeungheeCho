@@ -5,7 +5,7 @@ const Onboarding = () => {
   const [howPick, setHowPick] = useState("");
 
   return (
-    <OnboardingWrapper>
+    <>
       <OnboardingHeader>
         <h2>추천 방식을 골라주세요</h2>
       </OnboardingHeader>
@@ -26,26 +26,17 @@ const Onboarding = () => {
       <OnboardingPick $howPick={howPick}>{howPick}</OnboardingPick>
 
       <OnboardingStartBtn $howPick={howPick}> Start!</OnboardingStartBtn>
-    </OnboardingWrapper>
+    </>
   );
 };
 
 export default Onboarding;
 
-const OnboardingWrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 60%;
-  height: 60%;
-  padding: 3rem;
-
-  background-color: pink;
-`;
-
 const OnboardingHeader = styled.header`
+  position: absolute;
+  top: 0;
+  margin-top: 3rem;
+
   font-size: 1.3rem;
   font-weight: bold;
 `;
