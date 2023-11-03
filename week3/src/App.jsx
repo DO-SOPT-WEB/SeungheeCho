@@ -5,6 +5,7 @@ import PickMenu from "./components/PickMenu";
 import ResultMenu from "./components/ResultMenu";
 
 import { useState } from "react";
+import RandomMenu from "./components/RandomMenu";
 
 function App() {
   // 추천 방식 state
@@ -25,6 +26,8 @@ function App() {
               setHowPick={setHowPick}
               setStep={setStep}
             />
+          ) : step === 4 ? (
+            <RandomMenu setChoice={setChoice} setStep={setStep} />
           ) : step === choice.length ? (
             <ResultMenu
               choice={choice}

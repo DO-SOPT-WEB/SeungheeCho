@@ -22,7 +22,11 @@ const Onboarding = ({ howPick, setHowPick, setStep }) => {
         </OnboardingCard>
       </OnboardingBox>
       <OnboardingPick $howPick={howPick}>{howPick}</OnboardingPick>
-      <OnboardingStartBtn onClick={() => setStep(0)} $howPick={howPick}>
+      <OnboardingStartBtn
+        onClick={() => {
+          howPick === "취향대로 추천" ? setStep(0) : setStep(4);
+        }}
+        $howPick={howPick}>
         Start!
       </OnboardingStartBtn>
     </>
