@@ -1,9 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Onboarding = () => {
-  const [howPick, setHowPick] = useState("");
-
+const Onboarding = ({ howPick, setHowPick, setStep }) => {
   return (
     <>
       <OnboardingHeader>
@@ -24,8 +22,9 @@ const Onboarding = () => {
         </OnboardingCard>
       </OnboardingBox>
       <OnboardingPick $howPick={howPick}>{howPick}</OnboardingPick>
-
-      <OnboardingStartBtn $howPick={howPick}> Start!</OnboardingStartBtn>
+      <OnboardingStartBtn onClick={() => setStep(0)} $howPick={howPick}>
+        Start!
+      </OnboardingStartBtn>
     </>
   );
 };

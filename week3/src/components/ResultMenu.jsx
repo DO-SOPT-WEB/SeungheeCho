@@ -23,7 +23,7 @@ const ResultMenu = ({ choice, setChoice, setStep }) => {
           type="button"
           onClick={() => {
             setChoice(new Array(3));
-            setStep(0);
+            setStep(-1);
           }}>
           RETRY
         </button>

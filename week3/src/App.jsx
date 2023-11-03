@@ -7,8 +7,10 @@ import ResultMenu from "./components/ResultMenu";
 import { useState } from "react";
 
 function App() {
-  // 선택 단계 state
-  const [step, setStep] = useState(0);
+  // 추천 방식 state
+  const [howPick, setHowPick] = useState("");
+  // 선택 단계 state (-1 : 추천방식 선택 페이지)
+  const [step, setStep] = useState(-1);
   // 각 step별 선택한 답변idx 배열 state
   const [choice, setChoice] = useState(new Array(3));
 
@@ -17,7 +19,13 @@ function App() {
       <Wrapper>
         <Header />
         <ContentWrapper>
-          {step === choice.length ? (
+          {step === -1 ? (
+            <Onboarding
+              howPick={howPick}
+              setHowPick={setHowPick}
+              setStep={setStep}
+            />
+          ) : step === choice.length ? (
             <ResultMenu
               choice={choice}
               setChoice={setChoice}
