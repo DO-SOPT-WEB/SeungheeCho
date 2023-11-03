@@ -44,7 +44,7 @@ const PickMenu = () => {
         <button
           type="button"
           onClick={() => setStep(step + 1)}
-          disabled={step === CHOICE.length - 1}>
+          disabled={step === CHOICE.length - 1 || choice[step] === undefined}>
           다음으로
         </button>
       </Buttons>
