@@ -9,7 +9,7 @@ function App() {
       <Wrapper>
         <Header />
         <ContentWrapper>
-          <Onboarding />
+          <PickMenu />
         </ContentWrapper>
       </Wrapper>
     </>
@@ -36,8 +36,7 @@ const ContentWrapper = styled.main`
 
   position: relative;
   width: 60%;
-  height: 60%;
-  padding: 3rem;
+  padding: 5rem;
 
   background-color: pink;
 `;
