@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 
 const RandomMenu = ({ setChoice, setStep }) => {
   const [time, setTime] = useState(3);
