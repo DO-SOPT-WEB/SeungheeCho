@@ -3,12 +3,7 @@ import reset from "styled-reset";
 
 export const GlobalStyle = createGlobalStyle`
 ${reset}
-@font-face {
-    font-family: 'KOTRAHOPE';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/KOTRAHOPE.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
+
 #root, body, html {
     width:100%;
     height: 100vh;
@@ -16,7 +11,7 @@ ${reset}
 }
   
 * {
-    font-family: 'KOTRAHOPE';
+    ${({ theme }) => theme.fonts.kor};
     box-sizing: border-box;
 }
     

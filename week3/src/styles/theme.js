@@ -5,8 +5,14 @@ const colors = {
   point: "#DFE4FF",
 };
 
+const fonts = {
+  kor: "font-family: 'Do Hyeon', sans-serif;",
+  eng: "font-family: 'Bebas Neue', sans-serif;",
+};
+
 const theme = {
   colors,
+  fonts,
 };
 
 export default theme;

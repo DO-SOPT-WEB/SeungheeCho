@@ -39,8 +39,10 @@ const Header = styled.header`
   top: 0;
   margin-top: 2rem;
 
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: bold;
+
+  ${({ theme }) => theme.fonts.eng};
 `;
 
 const ResultMain = styled.section`
@@ -50,7 +52,7 @@ const ResultMain = styled.section`
   justify-content: center;
   gap: 1rem;
 
-  font-weight: bold;
+  ${({ theme }) => theme.fonts.kor};
 
   & > img {
     height: 50%;
@@ -72,6 +74,7 @@ const Buttons = styled.div`
     border: 0;
 
     background-color: ${({ theme }) => theme.colors.white};
+    ${({ theme }) => theme.fonts.eng};
 
     &:hover {
       border: 0.2rem solid ${({ theme }) => theme.colors.black};

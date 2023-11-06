@@ -53,8 +53,10 @@ const Header = styled.header`
   top: 0;
   margin-top: 2rem;
 
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   font-weight: bold;
+
+  ${({ theme }) => theme.fonts.eng};
 `;
 const PickMain = styled.section`
   & > ul {
@@ -81,8 +83,10 @@ const PickChoice = styled.li`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.point};
-    border-width: 0.2rem;
+    border-width: 0.5rem;
   }
+
+  ${({ theme }) => theme.fonts.kor};
 `;
 
 const Buttons = styled.div`

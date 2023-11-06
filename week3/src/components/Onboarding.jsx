@@ -99,5 +99,7 @@ const OnboardingStartBtn = styled.button`
   background-color: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};
 
+  ${({ theme }) => theme.fonts.eng};
+
   cursor: pointer;
 `;

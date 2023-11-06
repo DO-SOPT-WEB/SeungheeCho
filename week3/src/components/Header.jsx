@@ -23,4 +23,6 @@ const HeaderWrapper = styled.header`
 
   font-weight: bolder;
   font-size: 2rem;
+
+  ${({ theme }) => theme.fonts.eng}
 `;
