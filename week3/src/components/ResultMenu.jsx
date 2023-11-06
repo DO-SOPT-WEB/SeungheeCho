@@ -71,10 +71,10 @@ const Buttons = styled.div`
     border-radius: 0.5rem;
     border: 0;
 
-    background-color: white;
+    background-color: ${({ theme }) => theme.colors.white};
 
     &:hover {
-      border: 0.2rem solid black;
+      border: 0.2rem solid ${({ theme }) => theme.colors.black};
     }
     &:disabled {
       border: 0;

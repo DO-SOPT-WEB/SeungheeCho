@@ -73,13 +73,14 @@ const PickChoice = styled.li`
   width: 7rem;
   height: 7rem;
 
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
   border: ${(props) =>
-    props.$clicked ? "0.2rem solid red" : "0.1rem solid black"};
+    props.$clicked ? "0.5rem solid #B0C3FF" : "0.1rem solid black"};
   border-radius: 0.7rem;
+  color: ${({ theme }) => theme.colors.black};
 
   &:hover {
-    background-color: #ffe1e6;
+    background-color: ${({ theme }) => theme.colors.point};
     border-width: 0.2rem;
   }
 `;
@@ -98,10 +99,10 @@ const Buttons = styled.div`
     border-radius: 0.5rem;
     border: 0;
 
-    background-color: white;
+    background-color: ${({ theme }) => theme.colors.white};
 
     &:hover {
-      border: 0.2rem solid black;
+      border: 0.2rem solid ${({ theme }) => theme.colors.black};
     }
     &:disabled {
       border: 0;

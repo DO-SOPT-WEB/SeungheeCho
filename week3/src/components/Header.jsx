@@ -18,7 +18,8 @@ const HeaderWrapper = styled.header`
   width: 100%;
   height: 10%;
 
-  background-color: pink;
+  background-color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
 
   font-weight: bolder;
   font-size: 2rem;

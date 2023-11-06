@@ -58,6 +58,8 @@ const Wrapper = styled.section`
 
   width: 100vw;
   height: 100vh;
+
+  background-color: ${({ theme }) => theme.colors.black};
 `;
 
 const ContentWrapper = styled.main`
@@ -71,5 +73,7 @@ const ContentWrapper = styled.main`
   height: 70%;
   padding: 5rem;
 
-  background-color: pink;
+  background-color: ${({ theme }) => theme.colors.gray};
+  color: ${({ theme }) => theme.colors.white};
+  border-radius: 1rem;
 `;

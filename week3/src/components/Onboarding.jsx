@@ -59,14 +59,14 @@ const OnboardingCard = styled.button`
   height: 30vh;
 
   border-radius: 1rem;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
 
   font-size: 2rem;
 
   cursor: pointer;
 
   &:hover {
-    background-color: #ffe1e6;
+    background-color: ${({ theme }) => theme.colors.point};
   }
 `;
 
@@ -80,7 +80,7 @@ const OnboardingPick = styled.button`
   height: 30vh;
 
   border-radius: 1rem;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.white};
 
   font-size: 2rem;
 `;
@@ -96,8 +96,8 @@ const OnboardingStartBtn = styled.button`
   height: 2rem;
 
   border-radius: 1rem;
-  background-color: black;
-  color: white;
+  background-color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.white};
 
   cursor: pointer;
 `;
