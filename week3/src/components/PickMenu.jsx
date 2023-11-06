@@ -76,14 +76,13 @@ const PickChoice = styled.li`
   height: 7rem;
 
   background-color: ${({ theme }) => theme.colors.white};
-  border: ${(props) =>
-    props.$clicked ? "0.5rem solid #B0C3FF" : "0.1rem solid black"};
+  border: 0.1rem solid black;
   border-radius: 0.7rem;
+  ${(props) => props.$clicked && `box-shadow: 0 0 1rem white;`};
   color: ${({ theme }) => theme.colors.black};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.point};
-    border-width: 0.5rem;
   }
 
   ${({ theme }) => theme.fonts.kor};

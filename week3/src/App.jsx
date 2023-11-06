@@ -76,4 +76,6 @@ const ContentWrapper = styled.main`
   background-color: ${({ theme }) => theme.colors.gray};
   color: ${({ theme }) => theme.colors.white};
   border-radius: 1rem;
+
+  box-shadow: 0 0 1rem ${({ theme }) => theme.colors.white};
 `;

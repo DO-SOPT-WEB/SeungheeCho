@@ -56,6 +56,7 @@ const ResultMain = styled.section`
 
   & > img {
     height: 50%;
+    box-shadow: 0 0 9rem ${({ theme }) => theme.colors.white};
   }
 `;
 
