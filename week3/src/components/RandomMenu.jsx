@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const RandomMenu = ({ setChoice, setStep }) => {
   const [time, setTime] = useState(3);
@@ -20,7 +21,28 @@ const RandomMenu = ({ setChoice, setStep }) => {
     }
   }, [time]);
 
-  return <>{time}</>;
+  return (
+    <>
+      <Number>{time}</Number>
+    </>
+  );
 };
 
 export default RandomMenu;
+
+const Number = styled.p`
+  font-size: 2rem;
+
+  animation: flicker 1s infinite;
+
+  @keyframes flicker {
+    50% {
+      text-shadow: 0 0 0.5rem #fff, 0 0 0.7rem #fff, 0 0 1rem #fff,
+        0 0 2rem #0fa, 0 0 3rem #0fa;
+    }
+    0%,
+    100% {
+      text-shadow: none;
+    }
+  }
+`;
