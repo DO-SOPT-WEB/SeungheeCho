@@ -18,7 +18,12 @@ function App() {
   return (
     <>
       <Wrapper>
-        <Header />
+        <Header
+          step={step}
+          setStep={setStep}
+          setHowPick={setHowPick}
+          setChoice={setChoice}
+        />
         <ContentWrapper>
           {step === -1 ? (
             <Onboarding

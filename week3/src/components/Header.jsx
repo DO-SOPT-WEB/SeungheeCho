@@ -1,9 +1,20 @@
 import styled from "styled-components";
 
-const Header = () => {
+const Header = ({ step, setStep, setHowPick, setChoice }) => {
   return (
     <HeaderWrapper>
       <h1>PICK your BLACKUP</h1>
+      {step !== -1 && (
+        <ResetBtn
+          type="button"
+          onClick={() => {
+            setHowPick("");
+            setChoice(new Array(3));
+            setStep(-1);
+          }}>
+          처음으로
+        </ResetBtn>
+      )}
     </HeaderWrapper>
   );
 };
@@ -25,4 +36,10 @@ const HeaderWrapper = styled.header`
   font-size: 2rem;
 
   ${({ theme }) => theme.fonts.eng}
+`;
+
+const ResetBtn = styled.button`
+  position: absolute;
+  right: 0;
+  margin-right: 3rem;
 `;
