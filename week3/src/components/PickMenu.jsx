@@ -12,6 +12,7 @@ const PickMenu = ({ step, setStep, choice, setChoice }) => {
       <Header>
         <h2>CATEGORY</h2>
       </Header>
+      <Step>{step + 1}/3</Step>
       <PickMain>
         <ul>
           {CHOICE[step].map((el, idx) => (
@@ -57,6 +58,14 @@ const Header = styled.header`
   font-weight: bold;
 
   ${({ theme }) => theme.fonts.eng};
+`;
+const Step = styled.p`
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 3rem;
+
+  font-size: 1.5rem;
 `;
 const PickMain = styled.section`
   & > ul {
