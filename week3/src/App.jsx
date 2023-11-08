@@ -37,8 +37,8 @@ function App() {
     <>
       <Wrapper>
         <Header
-          step={step}
           dispatch={dispatch}
+          howPick={howPick}
           setHowPick={setHowPick}
           setChoice={setChoice}
         />

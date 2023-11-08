@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const Header = ({ step, dispatch, setHowPick, setChoice }) => {
+const Header = ({ dispatch, howPick, setHowPick, setChoice }) => {
   return (
     <HeaderWrapper>
       <h1>PICK your BLACKUP</h1>
-      {step !== -1 && (
+      {howPick !== "" && (
         <ResetBtn
           type="button"
           onClick={() => {
