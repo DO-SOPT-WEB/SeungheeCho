@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Title from "./Layout/Title";
 
-const Onboarding = ({ howPick, setHowPick, setStep }) => {
+const Onboarding = ({ howPick, setHowPick, dispatch }) => {
   return (
     <>
       <Title>CHOOSE YOUR FLOW</Title>
@@ -22,7 +22,9 @@ const Onboarding = ({ howPick, setHowPick, setStep }) => {
       <OnboardingPick $howPick={howPick}>{howPick}</OnboardingPick>
       <OnboardingStartBtn
         onClick={() => {
-          howPick === "취향대로 추천" ? setStep(0) : setStep(4);
+          howPick === "취향대로 추천"
+            ? dispatch({ type: "START_PICK" })
+            : dispatch({ type: "START_RANDOM" });
         }}
         $howPick={howPick}>
         Start!

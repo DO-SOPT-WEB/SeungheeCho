@@ -3,7 +3,7 @@ import DATA from "../assets";
 import Title from "./Layout/Title";
 import Buttons from "./Layout/Buttons";
 
-const ResultMenu = ({ choice, setChoice, setStep }) => {
+const ResultMenu = ({ choice, setChoice, dispatch }) => {
   const RESULT = DATA.find(
     (el) =>
       el.category === choice[0] &&
@@ -23,7 +23,7 @@ const ResultMenu = ({ choice, setChoice, setStep }) => {
           type="button"
           onClick={() => {
             setChoice(new Array(3));
-            setStep(-1);
+            dispatch({ type: "GO_BACK" });
           }}>
           RETRY
         </button>

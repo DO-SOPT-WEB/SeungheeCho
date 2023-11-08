@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Title from "./Layout/Title";
 import Buttons from "./Layout/Buttons";
 
-const PickMenu = ({ step, setStep, choice, setChoice }) => {
+const PickMenu = ({ step, dispatch, choice, setChoice }) => {
   const STEP_TITLE = ["CATEGORY", "SEASON", "COLOR"];
   const CHOICE = [
     ["아우터", "상의", "하의", "세트", "백&슈즈"],
@@ -33,13 +33,13 @@ const PickMenu = ({ step, setStep, choice, setChoice }) => {
       <Buttons>
         <button
           type="button"
-          onClick={() => setStep(step - 1)}
+          onClick={() => dispatch({ type: "PREV" })}
           disabled={step === 0}>
           이전으로
         </button>
         <button
           type="button"
-          onClick={() => setStep(step + 1)}
+          onClick={() => dispatch({ type: "NEXT" })}
           disabled={choice[step] === undefined}>
           {step === CHOICE.length - 1 ? "결과보기" : "다음으로"}
         </button>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Header = ({ step, setStep, setHowPick, setChoice }) => {
+const Header = ({ step, dispatch, setHowPick, setChoice }) => {
   return (
     <HeaderWrapper>
       <h1>PICK your BLACKUP</h1>
@@ -10,7 +10,7 @@ const Header = ({ step, setStep, setHowPick, setChoice }) => {
           onClick={() => {
             setHowPick("");
             setChoice(new Array(3));
-            setStep(-1);
+            dispatch({ type: "GO_BACK" });
           }}>
           처음으로
         </ResetBtn>

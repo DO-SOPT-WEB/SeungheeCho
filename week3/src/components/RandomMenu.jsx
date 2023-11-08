@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-const RandomMenu = ({ setChoice, setStep }) => {
+const RandomMenu = ({ setChoice, dispatch }) => {
   const [time, setTime] = useState(3);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const RandomMenu = ({ setChoice, setStep }) => {
         Math.floor(Math.random() * 3),
         Math.floor(Math.random() * 3),
       ]);
-      setStep(3);
+      dispatch({ type: "GO_RESULT" });
     }
   }, [time]);
 

@@ -4,23 +4,43 @@ import styled from "styled-components";
 import PickMenu from "./components/PickMenu";
 import ResultMenu from "./components/ResultMenu";
 
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import RandomMenu from "./components/RandomMenu";
 
 function App() {
   // 추천 방식 state
   const [howPick, setHowPick] = useState("");
   // 선택 단계 state (-1 : 추천방식 선택 페이지)
-  const [step, setStep] = useState(-1);
+  //const [step, setStep] = useState(-1);
   // 각 step별 선택한 답변idx 배열 state
   const [choice, setChoice] = useState(new Array(3));
+
+  // 선택 단계 step state를 관리하는 useReducer
+  const reducer = (step, action) => {
+    switch (action.type) {
+      case "GO_BACK":
+        return -1;
+      case "START_PICK":
+        return 0;
+      case "START_RANDOM":
+        return 4;
+      case "PREV":
+        return step - 1;
+      case "NEXT":
+        return step + 1;
+      case "GO_RESULT":
+        return 3;
+    }
+  };
+
+  const [step, dispatch] = useReducer(reducer, -1);
 
   return (
     <>
       <Wrapper>
         <Header
           step={step}
-          setStep={setStep}
+          dispatch={dispatch}
           setHowPick={setHowPick}
           setChoice={setChoice}
         />
@@ -29,20 +49,20 @@ function App() {
             <Onboarding
               howPick={howPick}
               setHowPick={setHowPick}
-              setStep={setStep}
+              dispatch={dispatch}
             />
           ) : step === 4 ? (
-            <RandomMenu setChoice={setChoice} setStep={setStep} />
+            <RandomMenu setChoice={setChoice} dispatch={dispatch} />
           ) : step === choice.length ? (
             <ResultMenu
               choice={choice}
               setChoice={setChoice}
-              setStep={setStep}
+              dispatch={dispatch}
             />
           ) : (
             <PickMenu
               step={step}
-              setStep={setStep}
+              dispatch={dispatch}
               choice={choice}
               setChoice={setChoice}
             />
