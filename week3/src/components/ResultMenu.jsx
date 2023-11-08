@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import DATA from "../assets";
+import Title from "./Layout/Title";
 
 const ResultMenu = ({ choice, setChoice, setStep }) => {
   const RESULT = DATA.find(
@@ -11,9 +12,7 @@ const ResultMenu = ({ choice, setChoice, setStep }) => {
 
   return (
     <>
-      <Header>
-        <h2>YOUR BEST ITEM</h2>
-      </Header>
+      <Title>YOUR BEST ITEM</Title>
       <ResultMain>
         <img src={RESULT.src} />
         <p>{RESULT.name}</p>
@@ -33,17 +32,6 @@ const ResultMenu = ({ choice, setChoice, setStep }) => {
 };
 
 export default ResultMenu;
-
-const Header = styled.header`
-  position: absolute;
-  top: 0;
-  margin-top: 2rem;
-
-  font-size: 1.8rem;
-  font-weight: bold;
-
-  ${({ theme }) => theme.fonts.eng};
-`;
 
 const ResultMain = styled.section`
   display: flex;

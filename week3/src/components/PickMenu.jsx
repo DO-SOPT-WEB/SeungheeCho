@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Title from "./Layout/Title";
 
 const PickMenu = ({ step, setStep, choice, setChoice }) => {
   const CHOICE = [
@@ -9,9 +10,7 @@ const PickMenu = ({ step, setStep, choice, setChoice }) => {
 
   return (
     <>
-      <Header>
-        <h2>CATEGORY</h2>
-      </Header>
+      <Title>CATEGORY</Title>
       <Step>{step + 1}/3</Step>
       <PickMain>
         <ul>
@@ -49,16 +48,6 @@ const PickMenu = ({ step, setStep, choice, setChoice }) => {
 
 export default PickMenu;
 
-const Header = styled.header`
-  position: absolute;
-  top: 0;
-  margin-top: 2rem;
-
-  font-size: 1.8rem;
-  font-weight: bold;
-
-  ${({ theme }) => theme.fonts.eng};
-`;
 const Step = styled.p`
   position: absolute;
   top: 0;

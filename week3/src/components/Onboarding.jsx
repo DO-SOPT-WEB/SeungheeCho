@@ -1,11 +1,10 @@
 import styled from "styled-components";
+import Title from "./Layout/Title";
 
 const Onboarding = ({ howPick, setHowPick, setStep }) => {
   return (
     <>
-      <OnboardingHeader>
-        <h2>추천 방식을 골라주세요</h2>
-      </OnboardingHeader>
+      <Title>CHOOSE YOUR FLOW</Title>
       <OnboardingBox $howPick={howPick}>
         <OnboardingCard
           onClick={() => {
@@ -33,15 +32,6 @@ const Onboarding = ({ howPick, setHowPick, setStep }) => {
 };
 
 export default Onboarding;
-
-const OnboardingHeader = styled.header`
-  position: absolute;
-  top: 0;
-  margin-top: 3rem;
-
-  font-size: 1.3rem;
-  font-weight: bold;
-`;
 
 const OnboardingBox = styled.section`
   display: ${(props) => (props.$howPick === "" ? "flex" : "none")};
