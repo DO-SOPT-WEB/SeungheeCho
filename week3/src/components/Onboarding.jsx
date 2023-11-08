@@ -60,7 +60,7 @@ const OnboardingCard = styled.button`
   }
 `;
 
-const OnboardingPick = styled.button`
+const OnboardingPick = styled.section`
   display: ${(props) => (props.$howPick === "" ? "none" : "flex")};
   justify-content: center;
   align-items: center;
@@ -71,7 +71,9 @@ const OnboardingPick = styled.button`
 
   border-radius: 1rem;
   background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
 
+  ${({ theme }) => theme.fonts.kor};
   font-size: 2rem;
 `;
 
