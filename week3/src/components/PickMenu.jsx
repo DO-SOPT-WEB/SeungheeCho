@@ -3,6 +3,7 @@ import Title from "./Layout/Title";
 import Buttons from "./Layout/Buttons";
 
 const PickMenu = ({ step, setStep, choice, setChoice }) => {
+  const STEP_TITLE = ["CATEGORY", "SEASON", "COLOR"];
   const CHOICE = [
     ["아우터", "상의", "하의", "세트", "백&슈즈"],
     ["여름", "봄/가을", "겨울"],
@@ -11,7 +12,7 @@ const PickMenu = ({ step, setStep, choice, setChoice }) => {
 
   return (
     <>
-      <Title>CATEGORY</Title>
+      <Title>{STEP_TITLE[step]}</Title>
       <Step>{step + 1}/3</Step>
       <PickMain>
         <ul>
