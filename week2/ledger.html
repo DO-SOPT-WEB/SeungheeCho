@@ -3,24 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="ledgerStyle.css" />
     <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="ledgerStyle.css" />
     <title>숭이의 가계부</title>
   </head>
   <body>
     <header>
       <h1>숭이의 가계부</h1>
     </header>
-    <section class="my_asset">
-      <h2>나의 자산</h2>
-      <p>9,999,987,000</p>
-      <div class="detail">
-        <i>+</i>
-        <span class="plus">9,999,990,000</span>
-        <i>-</i>
-        <span class="minus">3,000</span>
-      </div>
-    </section>
+    <section class="my_asset"></section>
     <hr />
     <section class="history">
       <nav class="date">
@@ -38,98 +29,22 @@
             <label for="minus_p">지출</label>
           </form>
         </header>
-        <ul>
-          <li>
-            <span class="category">식비</span>
-            <span class="place"
-              >청년다방청년다방청년다방청년다방청년다방청년다방</span
-            >
-            <span class="minus_price">-26,500</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">식비</span>
-            <span class="place">빽다방</span>
-            <span class="minus_price">-7,000</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">교통</span>
-            <span class="place">신한체크교통</span>
-            <span class="minus_price">-83,350</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">월급</span>
-            <span class="place">(주)뫄뫄랩스</span>
-            <span class="plus_price">+5,000,000</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">쇼핑</span>
-            <span class="place">다이소</span>
-            <span class="minus_price">-1,500</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">취미</span>
-            <span class="place">그믐달스튜디오</span>
-            <span class="minus_price">-5,000</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">취미</span>
-            <span class="place">락휴코인</span>
-            <span class="minus_price">-3,000</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">식비</span>
-            <span class="place">청년다방</span>
-            <span class="minus_price">-26,500</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">식비</span>
-            <span class="place">빽다방</span>
-            <span class="minus_price">-7,000</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">교통</span>
-            <span class="place">신한체크교통</span>
-            <span class="minus_price">-83,350</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">월급</span>
-            <span class="place">(주)뫄뫄랩스</span>
-            <span class="plus_price">+5,000,000</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">쇼핑</span>
-            <span class="place">다이소</span>
-            <span class="minus_price">-1,500</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">취미</span>
-            <span class="place">그믐달스튜디오</span>
-            <span class="minus_price">-5,000</span>
-            <i class="close_btn">✕</i>
-          </li>
-          <li>
-            <span class="category">취미</span>
-            <span class="place">락휴코인</span>
-            <span class="minus_price">-3,000</span>
-            <i class="close_btn">✕</i>
-          </li>
-        </ul>
+        <ul></ul>
       </section>
     </section>
     <footer>
       <button type="button">+</button>
     </footer>
+    <section class="modal_bg">
+      <section class="modal">
+        <p>정말 삭제하시겠습니까?</p>
+        <div>
+          <button type="button" class="delete_yes">예</button>
+          <button type="button" class="delete_no">취소</button>
+        </div>
+      </section>
+    </section>
+    <section class="add_sheet_bg"></section>
+    <script src="ledger.js"></script>
   </body>
 </html>
