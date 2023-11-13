@@ -1,15 +1,26 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import usePostLogin from "../hooks/usePostLogin";
+import postLogin from "../hooks/postLogin";
+import { useState } from "react";
 
 // 로그인 성공 시 반환받은 id로 /mypage/:userId
 // 로그인 에러 처리
 // 회원가입 클릭 시 /signup 이동
 
 const Login = () => {
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
+
   const buttons = (
     <Buttons>
-      <button type="button" onClick={usePostLogin}>
+      <button
+        type="submit"
+        onClick={() =>
+          postLogin({
+            username: id,
+            password: pw,
+          })
+        }>
         로그인
       </button>
       <button type="button">회원가입</button>
@@ -20,11 +31,21 @@ const Login = () => {
     <Layout title="Login" buttons={buttons}>
       <InputContainer>
         <label htmlFor="id">ID</label>
-        <input type="text" id="id" />
+        <input
+          type="text"
+          id="id"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+        />
       </InputContainer>
       <InputContainer>
         <label htmlFor="pw">PASSWORD</label>
-        <input type="text" id="pw" />
+        <input
+          type="text"
+          id="pw"
+          value={pw}
+          onChange={(e) => setPw(e.target.value)}
+        />
       </InputContainer>
     </Layout>
   );

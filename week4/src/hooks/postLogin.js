@@ -2,8 +2,8 @@ import axios from "axios";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-const usePostLogin = () => {
-  axios
+const postLogin = async () => {
+  await axios
     .post(`${BASE_URL}/sign-in`, {
       username: "lydia1",
       password: "0804",
@@ -13,4 +13,4 @@ const usePostLogin = () => {
     });
 };
 
-export default usePostLogin;
+export default postLogin;
