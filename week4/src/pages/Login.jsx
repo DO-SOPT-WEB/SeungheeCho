@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import postLogin from "../hooks/postLogin";
+import postLogin from "../api";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
