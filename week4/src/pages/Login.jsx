@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Layout from "../components/Layout";
 import postLogin from "../hooks/postLogin";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 // 로그인 성공 시 반환받은 id로 /mypage/:userId
 // 로그인 에러 처리
@@ -10,6 +11,8 @@ import { useState } from "react";
 const Login = () => {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
+
+  const navigate = useNavigate();
 
   const buttons = (
     <Buttons>
@@ -23,7 +26,13 @@ const Login = () => {
         }>
         로그인
       </button>
-      <button type="button">회원가입</button>
+      <button
+        type="button"
+        onClick={() => {
+          navigate("/signup");
+        }}>
+        회원가입
+      </button>
     </Buttons>
   );
 
