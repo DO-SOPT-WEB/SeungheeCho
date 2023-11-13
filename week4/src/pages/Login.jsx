@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
+import usePostLogin from "../hooks/usePostLogin";
 
 // 로그인 성공 시 반환받은 id로 /mypage/:userId
 // 로그인 에러 처리
@@ -8,7 +9,9 @@ import Layout from "../components/Layout";
 const Login = () => {
   const buttons = (
     <Buttons>
-      <button type="button">로그인</button>
+      <button type="button" onClick={usePostLogin}>
+        로그인
+      </button>
       <button type="button">회원가입</button>
     </Buttons>
   );
