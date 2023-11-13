@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import { useState } from "react";
+import postSignUp from "../api/postSignUp";
 //사용자 정보 조회GET으로 중복체크 (isExist = 성공:true, 실패:false)
 //ID input 값이 바뀜에 따라 isExist 초기화
 //회원가입POST로 가입, 성공 시 /login 이동
@@ -14,7 +15,17 @@ const SignUp = () => {
 
   const buttons = (
     <Buttons>
-      <button type="submit">회원가입</button>
+      <button
+        type="submit"
+        onClick={() => {
+          postSignUp({
+            username: id,
+            password: pw,
+            nickname,
+          });
+        }}>
+        회원가입
+      </button>
     </Buttons>
   );
 
