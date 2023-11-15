@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import postLogin from "../api/postLogin";
 
 // 로그인 성공 시 반환받은 id로 /mypage/:userId
 // 로그인 에러 처리
@@ -14,25 +14,12 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  // 로그인 버튼 클릭 시 login 통신
-
-  const postLogin = async () => {
-    await axios
-      .post(`${import.meta.env.VITE_BASE_URL}/sign-in`, {
-        username: ID,
-        password: PW,
-      })
-      .then((res) => {
-        navigate(`/mypage/${res.data.id}`);
-      });
-  };
-
   const buttons = (
     <Buttons>
       <button
         type="submit"
         onClick={() => {
-          postLogin();
+          postLogin(ID, PW, navigate);
         }}>
         로그인
       </button>

@@ -28,6 +28,8 @@ const SignUp = () => {
       });
   };
 
+  // 중복체크
+
   const buttons = (
     <Buttons>
       <button
