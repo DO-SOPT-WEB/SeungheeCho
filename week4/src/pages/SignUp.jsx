@@ -15,6 +15,8 @@ const SignUp = () => {
   const [pwCheck, setPwCheck] = useState("");
   const [nickname, setNickname] = useState("");
 
+  const [isExist, setExist] = useState(false);
+
   const navigate = useNavigate();
 
   const postSignUp = async (request) => {
@@ -46,12 +48,15 @@ const SignUp = () => {
     <Layout title="Sign Up" buttons={buttons}>
       <InputContainer>
         <label htmlFor="id">ID</label>
-        <input
-          type="text"
-          id="id"
-          value={id}
-          onChange={(e) => setId(e.target.value)}
-        />
+        <div>
+          <input
+            type="text"
+            id="id"
+            value={id}
+            onChange={(e) => setId(e.target.value)}
+          />
+          <button type="button">중복체크</button>
+        </div>
       </InputContainer>
       <InputContainer>
         <label htmlFor="pw">비밀번호</label>
@@ -87,21 +92,26 @@ const SignUp = () => {
 export default SignUp;
 
 const InputContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
   align-items: center;
 
   font-size: 1.3rem;
   font-weight: 600;
 
-  & > input {
-    width: 70%;
+  & input {
     height: 2rem;
 
     font-size: 1.2rem;
 
     border-radius: 0.3rem;
     border: 0;
+  }
+
+  & > div {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0.5rem;
   }
 `;
 
