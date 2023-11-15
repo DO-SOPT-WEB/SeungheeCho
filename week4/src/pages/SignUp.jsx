@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import { useState } from "react";
-import postSignUp from "../api/postSignUp";
+import axios from "axios";
+import { useNavigate } from "react-router";
+
 //사용자 정보 조회GET으로 중복체크 (isExist = 성공:true, 실패:false)
 //ID input 값이 바뀜에 따라 isExist 초기화
 //회원가입POST로 가입, 성공 시 /login 이동
@@ -12,6 +14,17 @@ const SignUp = () => {
   const [pw, setPw] = useState("");
   const [pwCheck, setPwCheck] = useState("");
   const [nickname, setNickname] = useState("");
+
+  const navigate = useNavigate();
+
+  const postSignUp = async (request) => {
+    await axios
+      .post(`${import.meta.env.VITE_BASE_URL}`, request)
+      .then((res) => {
+        console.log(res);
+        navigate("/login");
+      });
+  };
 
   const buttons = (
     <Buttons>
