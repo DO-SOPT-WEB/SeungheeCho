@@ -38,7 +38,6 @@ const SignUp = () => {
         console.log("성공 : ", res);
       })
       .catch((err) => {
-        console.log("실패 : ", err.response.data.message);
         if (err.response.data.message === "비밀번호가 일치하지 않습니다.")
           setExist("red");
         else if (err.response.data.message === "사용자가 존재하지 않습니다.")
@@ -56,7 +55,10 @@ const SignUp = () => {
             password: PW,
             nickname,
           });
-        }}>
+        }}
+        disabled={
+          ID === "" || PW === "" || nickname === "" || isExist !== "green"
+        }>
         회원가입
       </button>
     </Buttons>
