@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
+import { Outlet } from "react-router-dom";
 
 const MyPage = () => {
   const buttons = (
@@ -9,7 +10,7 @@ const MyPage = () => {
   );
   return (
     <Layout title="MY PAGE" buttons={buttons}>
-      MyPage
+      <Outlet />
     </Layout>
   );
 };

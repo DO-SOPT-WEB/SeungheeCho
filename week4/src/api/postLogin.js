@@ -1,11 +1,17 @@
 import axios from "axios";
+import { useState } from "react";
 
-const postLogin = async (request) => {
-  await axios
+const usePostLogin = (request) => {
+  const [response, setResponse] = useState("");
+
+  axios
     .post(`${import.meta.env.VITE_BASE_URL}/sign-in`, request)
     .then((res) => {
-      console.log(res);
+      setResponse(res.data);
+      // navigate(`/mypage/${res.data.id}`);
     });
+
+  return response;
 };
 
-export default postLogin;
+export default usePostLogin;

@@ -18,12 +18,14 @@ const Login = () => {
     <Buttons>
       <button
         type="submit"
-        onClick={() =>
-          postLogin({
+        onClick={() => {
+          const res = postLogin({
             username: id,
             password: pw,
-          })
-        }>
+          });
+          console.log(res);
+          //navigate(`/signup/${res.data.id}`);
+        }}>
         로그인
       </button>
       <button
