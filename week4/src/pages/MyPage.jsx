@@ -1,11 +1,19 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 const MyPage = () => {
+  const navigate = useNavigate();
+
   const buttons = (
     <Buttons>
-      <button type="button">로그아웃</button>
+      <button
+        type="button"
+        onClick={() => {
+          navigate("/login");
+        }}>
+        로그아웃
+      </button>
     </Buttons>
   );
   return (
