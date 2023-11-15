@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import postLogin from "../api/postLogin";
+import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
@@ -9,22 +9,30 @@ import { useNavigate } from "react-router";
 // 회원가입 클릭 시 /signup 이동
 
 const Login = () => {
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
+  const [ID, setId] = useState("");
+  const [PW, setPw] = useState("");
 
   const navigate = useNavigate();
+
+  // 로그인 버튼 클릭 시 login 통신
+
+  const postLogin = async () => {
+    await axios
+      .post(`${import.meta.env.VITE_BASE_URL}/sign-in`, {
+        username: ID,
+        password: PW,
+      })
+      .then((res) => {
+        navigate(`/mypage/${res.data.id}`);
+      });
+  };
 
   const buttons = (
     <Buttons>
       <button
         type="submit"
         onClick={() => {
-          const res = postLogin({
-            username: id,
-            password: pw,
-          });
-          console.log(res);
-          //navigate(`/signup/${res.data.id}`);
+          postLogin();
         }}>
         로그인
       </button>
@@ -45,7 +53,7 @@ const Login = () => {
         <input
           type="text"
           id="id"
-          value={id}
+          value={ID}
           onChange={(e) => setId(e.target.value)}
         />
       </InputContainer>
@@ -54,7 +62,7 @@ const Login = () => {
         <input
           type="text"
           id="pw"
-          value={pw}
+          value={PW}
           onChange={(e) => setPw(e.target.value)}
         />
       </InputContainer>
