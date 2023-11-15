@@ -7,7 +7,6 @@ async function postLogin(username, password, navigate) {
       password,
     })
     .then((res) => {
-      console.log(res);
       navigate(`/mypage/${res.data.id}`);
     });
 }

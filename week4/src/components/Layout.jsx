@@ -32,7 +32,7 @@ const Container = styled.main`
   justify-content: center;
   gap: 2.5rem;
 
-  width: 50%;
+  width: 40rem;
   padding: 3rem;
 
   background-color: ${({ theme }) => theme.colors.gray};

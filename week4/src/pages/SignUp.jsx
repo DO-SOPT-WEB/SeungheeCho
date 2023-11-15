@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
@@ -10,12 +10,12 @@ import { useNavigate } from "react-router";
 //회원가입 에러 처리 (단순 alert)
 
 const SignUp = () => {
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
+  const [ID, setId] = useState("");
+  const [PW, setPw] = useState("");
   const [pwCheck, setPwCheck] = useState("");
   const [nickname, setNickname] = useState("");
 
-  const [isExist, setExist] = useState(false);
+  const [isExist, setExist] = useState("black");
 
   const navigate = useNavigate();
 
@@ -23,12 +23,28 @@ const SignUp = () => {
     await axios
       .post(`${import.meta.env.VITE_BASE_URL}`, request)
       .then((res) => {
-        console.log(res);
         navigate("/login");
       });
   };
 
   // 중복체크
+  const checkDouble = async () => {
+    await axios
+      .post(`${import.meta.env.VITE_BASE_URL}/sign-in`, {
+        username: ID,
+        password: "",
+      })
+      .then((res) => {
+        console.log("성공 : ", res);
+      })
+      .catch((err) => {
+        console.log("실패 : ", err.response.data.message);
+        if (err.response.data.message === "비밀번호가 일치하지 않습니다.")
+          setExist("red");
+        else if (err.response.data.message === "사용자가 존재하지 않습니다.")
+          setExist("green");
+      });
+  };
 
   const buttons = (
     <Buttons>
@@ -36,8 +52,8 @@ const SignUp = () => {
         type="submit"
         onClick={() => {
           postSignUp({
-            username: id,
-            password: pw,
+            username: ID,
+            password: PW,
             nickname,
           });
         }}>
@@ -45,6 +61,10 @@ const SignUp = () => {
       </button>
     </Buttons>
   );
+
+  useEffect(() => {
+    setExist("black");
+  }, [ID]);
 
   return (
     <Layout title="Sign Up" buttons={buttons}>
@@ -54,10 +74,12 @@ const SignUp = () => {
           <input
             type="text"
             id="id"
-            value={id}
+            value={ID}
             onChange={(e) => setId(e.target.value)}
           />
-          <button type="button">중복체크</button>
+          <CheckBtn type="button" onClick={checkDouble} $isExist={isExist}>
+            중복체크
+          </CheckBtn>
         </div>
       </InputContainer>
       <InputContainer>
@@ -65,7 +87,7 @@ const SignUp = () => {
         <input
           type="text"
           id="pw"
-          value={pw}
+          value={PW}
           onChange={(e) => setPw(e.target.value)}
         />
       </InputContainer>
@@ -95,7 +117,7 @@ export default SignUp;
 
 const InputContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: auto 20rem;
   align-items: center;
 
   font-size: 1.3rem;
@@ -111,10 +133,18 @@ const InputContainer = styled.div`
   }
 
   & > div {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 0.5rem;
+    display: flex;
+    gap: 1rem;
+
+    width: 100%;
   }
+`;
+const CheckBtn = styled.button`
+  width: 100%;
+  color: white;
+  background-color: ${({ $isExist }) => $isExist};
+  border: 0;
+  border-radius: 0.5rem;
 `;
 
 const Buttons = styled.div`
