@@ -36,8 +36,9 @@ const Container = styled.main`
   width: 40rem;
   padding: 3rem;
 
-  background-color: ${({ theme }) => theme.colors.gray};
+  background-color: ${({ theme }) => theme.colors.white};
   border-radius: 1rem;
+  box-shadow: 0 0 1rem ${({ theme }) => theme.colors.gray};
 `;
 
 const Header = styled.header`

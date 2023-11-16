@@ -8,8 +8,8 @@ ${reset}
     width:100%;
     height: 100vh;
     margin: 0 auto;
-    background-color: ${({ theme }) => theme.colors.black};
-    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.black};
 }
 
 * {
