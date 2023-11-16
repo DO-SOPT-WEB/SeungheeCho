@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router";
+import postSignUp from "../api/postSignUp";
+import getIdCheck from "../api/getIdCheck";
 
 const SignUp = () => {
   const [ID, setId] = useState("");
@@ -14,38 +15,19 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  // 중복체크
-  const checkDouble = async () => {
-    await axios
-      .post(
-        `${import.meta.env.VITE_BASE_URL}/sign-in`,
-        {
-          username: ID,
-          password: "",
-        },
-        navigate
-      )
-      .then((res) => {
-        console.log("성공 : ", res);
-      })
-      .catch((err) => {
-        if (err.response.data.message === "비밀번호가 일치하지 않습니다.")
-          setExist("red");
-        else if (err.response.data.message === "사용자가 존재하지 않습니다.")
-          setExist("green");
-      });
-  };
-
   const buttons = (
     <Buttons>
       <button
         type="submit"
         onClick={() => {
-          postSignUp({
-            username: ID,
-            password: PW,
-            nickname,
-          });
+          postSignUp(
+            {
+              username: ID,
+              password: PW,
+              nickname,
+            },
+            navigate
+          );
         }}
         disabled={
           ID === "" || PW === "" || nickname === "" || isExist !== "green"
@@ -70,7 +52,12 @@ const SignUp = () => {
             value={ID}
             onChange={(e) => setId(e.target.value)}
           />
-          <CheckBtn type="button" onClick={checkDouble} $isExist={isExist}>
+          <CheckBtn
+            type="button"
+            onClick={getIdCheck}
+            ID={ID}
+            setExist={setExist}
+            $isExist={isExist}>
             중복체크
           </CheckBtn>
         </div>
