@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import postLogin from "../api/postLogin";
 import Buttons from "../components/Buttons";
+import InputContainer from "../components/InputContainer";
 
 // 로그인 컴포넌트 (페이지)
 const Login = () => {
@@ -29,29 +30,10 @@ const Login = () => {
 
   return (
     <Layout title="Login" buttons={Buttons(btnInfo)}>
-      <InputContainer name="ID" state={ID} setState={setId} />
-      <InputContainer name="PASSWORD" state={PW} setState={setPw} />
+      <InputContainer name="ID" state={ID} $setState={setId} />
+      <InputContainer name="PASSWORD" state={PW} $setState={setPw} />
     </Layout>
   );
 };
 
 export default Login;
-
-const InputContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  font-size: 1.3rem;
-  font-weight: 600;
-
-  & > input {
-    width: 70%;
-    height: 2rem;
-
-    font-size: 1.2rem;
-
-    border-radius: 0.3rem;
-    border: 0;
-  }
-`;
