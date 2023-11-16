@@ -5,7 +5,7 @@ import useGetUserInfo from "../api/useGetUserInfo";
 // 마이페이지 내부 콘텐츠 컴포넌트
 const MyPageInfo = () => {
   const param = useParams();
-  const { nickname, username } = useGetUserInfo(param.userId);
+  const { username, nickname } = useGetUserInfo(param.userId);
 
   return (
     <Wrapper>

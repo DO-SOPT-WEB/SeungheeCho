@@ -5,15 +5,21 @@ import { useEffect, useState } from "react";
 const useGetUserInfo = (memberId) => {
   const [response, setResponse] = useState("");
 
-  useEffect(() => {
+  const getUserInfo = async () => {
     try {
-      const res = axios.get(`${import.meta.env.VITE_BASE_URL}/${memberId}`);
+      const res = await axios.get(
+        `${import.meta.env.VITE_BASE_URL}/${memberId}`
+      );
       setResponse(res.data);
     } catch {
       (err) => {
         console.log(err);
       };
     }
+  };
+
+  useEffect(() => {
+    getUserInfo();
   }, []);
 
   return response;
