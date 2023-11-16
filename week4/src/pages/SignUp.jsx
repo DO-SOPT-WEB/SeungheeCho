@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import postSignUp from "../api/postSignUp";
 import getIdCheck from "../api/getIdCheck";
+import Buttons from "../components/Buttons";
 
 const SignUp = () => {
   const [ID, setId] = useState("");
@@ -15,34 +16,30 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const buttons = (
-    <Buttons>
-      <button
-        type="submit"
-        onClick={() => {
-          postSignUp(
-            {
-              username: ID,
-              password: PW,
-              nickname,
-            },
-            navigate
-          );
-        }}
-        disabled={
-          ID === "" || PW === "" || nickname === "" || isExist !== "green"
-        }>
-        회원가입
-      </button>
-    </Buttons>
-  );
+  const btnInfo = [
+    {
+      name: "회원가입",
+      clickAction: function () {
+        postSignUp(
+          {
+            username: ID,
+            password: PW,
+            nickname,
+          },
+          navigate
+        );
+      },
+      disabled:
+        ID === "" || PW === "" || nickname === "" || isExist !== "green",
+    },
+  ];
 
   useEffect(() => {
     setExist("black");
   }, [ID]);
 
   return (
-    <Layout title="Sign Up" buttons={buttons}>
+    <Layout title="Sign Up" buttons={Buttons(btnInfo)}>
       <InputContainer>
         <label htmlFor="id">ID</label>
         <div>
@@ -54,9 +51,9 @@ const SignUp = () => {
           />
           <CheckBtn
             type="button"
-            onClick={getIdCheck}
-            ID={ID}
-            setExist={setExist}
+            onClick={function () {
+              getIdCheck({ ID, setExist });
+            }}
             $isExist={isExist}>
             중복체크
           </CheckBtn>
@@ -125,20 +122,4 @@ const CheckBtn = styled.button`
   background-color: ${({ $isExist }) => $isExist};
   border: 0;
   border-radius: 0.5rem;
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  width: 100%;
-
-  & > button {
-    font-size: 1.3rem;
-    padding: 0.5rem;
-
-    border-radius: 0.5rem;
-    border: 0;
-  }
 `;

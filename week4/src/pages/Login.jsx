@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import postLogin from "../api/postLogin";
+import Buttons from "../components/Buttons";
 
 const Login = () => {
   const [ID, setId] = useState("");
@@ -10,27 +11,23 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const buttons = (
-    <Buttons>
-      <button
-        type="submit"
-        onClick={() => {
-          postLogin(ID, PW, navigate);
-        }}>
-        로그인
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          navigate("/signup");
-        }}>
-        회원가입
-      </button>
-    </Buttons>
-  );
+  const btnInfo = [
+    {
+      name: "로그인",
+      clickAction: function () {
+        postLogin(ID, PW, navigate);
+      },
+    },
+    {
+      name: "회원가입",
+      clickAction: function () {
+        navigate("/signup");
+      },
+    },
+  ];
 
   return (
-    <Layout title="Login" buttons={buttons}>
+    <Layout title="Login" buttons={Buttons(btnInfo)}>
       <InputContainer>
         <label htmlFor="id">ID</label>
         <input
@@ -70,22 +67,6 @@ const InputContainer = styled.div`
     font-size: 1.2rem;
 
     border-radius: 0.3rem;
-    border: 0;
-  }
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-
-  width: 100%;
-
-  & > button {
-    font-size: 1.3rem;
-    padding: 0.5rem;
-
-    border-radius: 0.5rem;
     border: 0;
   }
 `;
