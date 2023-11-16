@@ -80,4 +80,10 @@ const CheckBtn = styled.button`
   background-color: ${({ $isExist }) => $isExist};
   border: 0;
   border-radius: 0.5rem;
+
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0rem 0rem 0.5rem white;
+  }
 `;

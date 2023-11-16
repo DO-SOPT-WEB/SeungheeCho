@@ -30,8 +30,8 @@ const Login = () => {
 
   return (
     <Layout title="Login" buttons={Buttons(btnInfo)}>
-      <InputContainer name="ID" state={ID} $setState={setId} />
-      <InputContainer name="PASSWORD" state={PW} $setState={setPw} />
+      <InputContainer name="ID" state={ID} setState={setId} />
+      <InputContainer name="PASSWORD" state={PW} setState={setPw} />
     </Layout>
   );
 };

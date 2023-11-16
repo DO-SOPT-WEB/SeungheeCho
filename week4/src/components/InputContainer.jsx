@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // 입력창 컴포넌트 (공통)
-const InputContainer = ({ name, state, $setState, custom, children }) => {
+const InputContainer = ({ name, state, setState, custom, children }) => {
   return custom ? (
     <Container>{children}</Container>
   ) : (
@@ -11,7 +11,7 @@ const InputContainer = ({ name, state, $setState, custom, children }) => {
         type="text"
         id={state}
         value={state}
-        onChange={(e) => $setState(e.target.value)}
+        onChange={(e) => setState(e.target.value)}
       />
     </Container>
   );
