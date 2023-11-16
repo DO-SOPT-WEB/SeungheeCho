@@ -13,10 +13,10 @@ const MyPageInfo = () => {
       {username ? (
         <div>
           <p>
-            ID : <span>{username}</span>
+            <span>ID</span> <span>{username}</span>
           </p>
           <p>
-            닉네임 : <span>{nickname}</span>
+            <span>NICKNAME</span> <span>{nickname}</span>
           </p>
         </div>
       ) : (
@@ -46,7 +46,18 @@ const Wrapper = styled.section`
     flex-direction: column;
     gap: 1rem;
 
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
+  & p {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    & > span:nth-child(1) {
+      padding-left: 1rem;
+      font-weight: 600;
+      border-left: 0.5rem solid ${({ theme }) => theme.colors.sopt};
+      height: 1.3rem;
+    }
   }
 `;
