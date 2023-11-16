@@ -3,7 +3,7 @@ import styled from "styled-components";
 // 모달 컴포넌트 (공통)
 const Layout = ({ title, buttons, children }) => {
   return (
-    <Wrapper>
+    <Wrapper className="top">
       <Container>
         <Header>
           <h1>{title}</h1>
@@ -19,8 +19,11 @@ export default Layout;
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  position: relative;
 
   width: 100vw;
   height: 100vh;
