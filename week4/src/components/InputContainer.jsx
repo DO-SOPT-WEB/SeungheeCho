@@ -21,19 +21,20 @@ export default InputContainer;
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: auto 20rem;
+  grid-template-columns: auto 23rem;
   align-items: center;
 
   font-size: 1.3rem;
   font-weight: 600;
 
   & input {
-    height: 2rem;
+    height: 2.5rem;
+    padding: 0.5rem;
 
     font-size: 1.2rem;
 
-    border-radius: 0.3rem;
-    border: 0;
+    border-radius: 0.5rem;
+    border: 0.2rem solid ${({ theme }) => theme.colors.sopt};
   }
 
   & > div {
