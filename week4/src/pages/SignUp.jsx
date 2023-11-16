@@ -84,6 +84,6 @@ const CheckBtn = styled.button`
   cursor: pointer;
 
   &:hover {
-    box-shadow: 0rem 0rem 0.5rem white;
+    box-shadow: 0rem 0rem 0.5rem ${({ theme }) => theme.colors.gray};
   }
 `;

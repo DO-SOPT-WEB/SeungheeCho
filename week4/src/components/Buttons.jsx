@@ -27,12 +27,19 @@ const Container = styled.div`
   width: 100%;
 
   & > button {
-    font-size: 1.3rem;
-    padding: 0.5rem;
+    padding: 0.7rem;
 
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     border: 0;
 
+    font-size: 1.2rem;
+    font-weight: 600;
+
     cursor: pointer;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.sopt};
+      box-shadow: 0rem 0rem 0.3rem ${({ theme }) => theme.colors.sopt};
+    }
   }
 `;
