@@ -28,24 +28,8 @@ const Login = () => {
 
   return (
     <Layout title="Login" buttons={Buttons(btnInfo)}>
-      <InputContainer>
-        <label htmlFor="id">ID</label>
-        <input
-          type="text"
-          id="id"
-          value={ID}
-          onChange={(e) => setId(e.target.value)}
-        />
-      </InputContainer>
-      <InputContainer>
-        <label htmlFor="pw">PASSWORD</label>
-        <input
-          type="text"
-          id="pw"
-          value={PW}
-          onChange={(e) => setPw(e.target.value)}
-        />
-      </InputContainer>
+      <InputContainer name="ID" state={ID} setState={setId} />
+      <InputContainer name="PASSWORD" state={PW} setState={setPw} />
     </Layout>
   );
 };

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import postSignUp from "../api/postSignUp";
 import getIdCheck from "../api/getIdCheck";
 import Buttons from "../components/Buttons";
+import InputContainer from "../components/InputContainer";
 
 const SignUp = () => {
   const [ID, setId] = useState("");
@@ -40,7 +41,7 @@ const SignUp = () => {
 
   return (
     <Layout title="Sign Up" buttons={Buttons(btnInfo)}>
-      <InputContainer>
+      <InputContainer custom={true}>
         <label htmlFor="id">ID</label>
         <div>
           <input
@@ -59,63 +60,19 @@ const SignUp = () => {
           </CheckBtn>
         </div>
       </InputContainer>
-      <InputContainer>
-        <label htmlFor="pw">비밀번호</label>
-        <input
-          type="text"
-          id="pw"
-          value={PW}
-          onChange={(e) => setPw(e.target.value)}
-        />
-      </InputContainer>
-      <InputContainer>
-        <label htmlFor="pwCheck">비밀번호 확인</label>
-        <input
-          type="text"
-          id="pwCheck"
-          value={pwCheck}
-          onChange={(e) => setPwCheck(e.target.value)}
-        />
-      </InputContainer>
-      <InputContainer>
-        <label htmlFor="nickname">닉네임</label>
-        <input
-          type="text"
-          id="nickname"
-          value={nickname}
-          onChange={(e) => setNickname(e.target.value)}
-        />
-      </InputContainer>
+      <InputContainer name="비밀번호" state={PW} setState={setPw} />
+      <InputContainer
+        name="비밀번호 확인"
+        state={pwCheck}
+        setState={setPwCheck}
+      />
+      <InputContainer name="닉네임" state={nickname} setState={setNickname} />
     </Layout>
   );
 };
 
 export default SignUp;
 
-const InputContainer = styled.div`
-  display: grid;
-  grid-template-columns: auto 20rem;
-  align-items: center;
-
-  font-size: 1.3rem;
-  font-weight: 600;
-
-  & input {
-    height: 2rem;
-
-    font-size: 1.2rem;
-
-    border-radius: 0.3rem;
-    border: 0;
-  }
-
-  & > div {
-    display: flex;
-    gap: 1rem;
-
-    width: 100%;
-  }
-`;
 const CheckBtn = styled.button`
   width: 100%;
   color: white;
