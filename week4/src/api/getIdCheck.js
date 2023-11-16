@@ -6,7 +6,7 @@ const getIdCheck = async ({ ID, setExist }) => {
     const res = await axios.get(
       `${import.meta.env.VITE_BASE_URL}/check?username=${ID}`
     );
-    res.data.isExist ? setExist("red") : setExist("green");
+    res.data.isExist ? setExist("true") : setExist("false");
   } catch {
     (err) => {
       console.log(err);

@@ -14,7 +14,7 @@ const SignUp = () => {
   const [pwCheck, setPwCheck] = useState("");
   const [nickname, setNickname] = useState("");
 
-  const [isExist, setExist] = useState("black");
+  const [isExist, setExist] = useState("default");
 
   const navigate = useNavigate();
 
@@ -32,12 +32,12 @@ const SignUp = () => {
         );
       },
       disabled:
-        ID === "" || PW === "" || nickname === "" || isExist !== "green",
+        ID === "" || PW === "" || nickname === "" || isExist !== "false",
     },
   ];
 
   useEffect(() => {
-    setExist("black");
+    setExist("default");
   }, [ID]);
 
   return (
@@ -77,11 +77,19 @@ export default SignUp;
 const CheckBtn = styled.button`
   width: 100%;
   color: white;
-  background-color: ${({ $isExist }) => $isExist};
+  background-color: ${({ $isExist, theme }) =>
+    $isExist === "default"
+      ? theme.colors.black
+      : $isExist === "true"
+      ? "red"
+      : "green"};
   border: 0;
   border-radius: 0.5rem;
 
   cursor: pointer;
+
+  font-size: 0.9rem;
+  font-weight: 600;
 
   &:hover {
     box-shadow: 0rem 0rem 0.5rem ${({ theme }) => theme.colors.gray};
