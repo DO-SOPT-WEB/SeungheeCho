@@ -32,7 +32,11 @@ const SignUp = () => {
         );
       },
       disabled:
-        ID === "" || PW === "" || nickname === "" || isExist !== "false",
+        ID === "" ||
+        PW === "" ||
+        nickname === "" ||
+        isExist !== "false" ||
+        PW !== pwCheck,
     },
   ];
 
