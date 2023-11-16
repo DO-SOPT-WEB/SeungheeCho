@@ -7,6 +7,7 @@ import getIdCheck from "../api/getIdCheck";
 import Buttons from "../components/Buttons";
 import InputContainer from "../components/InputContainer";
 
+// 회원가입 컴포넌트 (페이지)
 const SignUp = () => {
   const [ID, setId] = useState("");
   const [PW, setPw] = useState("");

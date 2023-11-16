@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// 입력창 컴포넌트 (공통)
 const InputContainer = ({ name, state, setState, custom, children }) => {
   return custom ? (
     <Container>{children}</Container>

@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import { Outlet, useNavigate } from "react-router-dom";
 import Buttons from "../components/Buttons";
 
+// 마이페이지 컴포넌트 (페이지)
 const MyPage = () => {
   const navigate = useNavigate();
 

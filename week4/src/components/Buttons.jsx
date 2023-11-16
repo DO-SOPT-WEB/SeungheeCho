@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// 버튼 컴포넌트 (공통)
 const Buttons = (buttons) => {
   return (
     <Container>

@@ -1,11 +1,17 @@
 import axios from "axios";
 
+// ID 중복체크 API
 const getIdCheck = async ({ ID, setExist }) => {
-  await axios
-    .get(`${import.meta.env.VITE_BASE_URL}/check?username=${ID}`)
-    .then((res) => {
-      res.data.isExist ? setExist("red") : setExist("green");
-    });
+  try {
+    const res = await axios.get(
+      `${import.meta.env.VITE_BASE_URL}/check?username=${ID}`
+    );
+    res.data.isExist ? setExist("red") : setExist("green");
+  } catch {
+    (err) => {
+      console.log(err);
+    };
+  }
 };
 
 export default getIdCheck;

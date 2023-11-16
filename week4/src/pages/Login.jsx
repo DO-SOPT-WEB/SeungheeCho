@@ -5,6 +5,7 @@ import { useNavigate } from "react-router";
 import postLogin from "../api/postLogin";
 import Buttons from "../components/Buttons";
 
+// 로그인 컴포넌트 (페이지)
 const Login = () => {
   const [ID, setId] = useState("");
   const [PW, setPw] = useState("");

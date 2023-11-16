@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// 모달 컴포넌트 (공통)
 const Layout = ({ title, buttons, children }) => {
   return (
     <Wrapper>
