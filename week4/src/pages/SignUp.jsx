@@ -4,11 +4,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-//사용자 정보 조회GET으로 중복체크 (isExist = 성공:true, 실패:false)
-//ID input 값이 바뀜에 따라 isExist 초기화
-//회원가입POST로 가입, 성공 시 /login 이동
-//회원가입 에러 처리 (단순 alert)
-
 const SignUp = () => {
   const [ID, setId] = useState("");
   const [PW, setPw] = useState("");
@@ -19,21 +14,17 @@ const SignUp = () => {
 
   const navigate = useNavigate();
 
-  const postSignUp = async (request) => {
-    await axios
-      .post(`${import.meta.env.VITE_BASE_URL}`, request)
-      .then((res) => {
-        navigate("/login");
-      });
-  };
-
   // 중복체크
   const checkDouble = async () => {
     await axios
-      .post(`${import.meta.env.VITE_BASE_URL}/sign-in`, {
-        username: ID,
-        password: "",
-      })
+      .post(
+        `${import.meta.env.VITE_BASE_URL}/sign-in`,
+        {
+          username: ID,
+          password: "",
+        },
+        navigate
+      )
       .then((res) => {
         console.log("성공 : ", res);
       })
