@@ -14,3 +14,4 @@
 |2주차|💭|명령형/선언형|[`생각`](https://github.com/DO-SOPT-WEB/SeungHeeCho/pull/5)|
 |3주차|React|Pick Your BLACKUP|[`기본` `심화`](https://github.com/DO-SOPT-WEB/SeungHeeCho/pull/9)|
 |3주차|💭|컴포넌트분리/상태관리/렌더링|[`생각`](https://github.com/DO-SOPT-WEB/SeungHeeCho/pull/8)|
+|3주차|React|라우팅과 서버통신|[`기본` `심화`](https://github.com/DO-SOPT-WEB/SeungHeeCho/pull/10)|
