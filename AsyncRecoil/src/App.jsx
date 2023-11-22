@@ -8,7 +8,7 @@ function App() {
   return (
     <Wrapper>
       {isOpen ? (
-        <MyPage />
+        <MyPage setOpen={setOpen} />
       ) : (
         <Button
           onClick={() => {

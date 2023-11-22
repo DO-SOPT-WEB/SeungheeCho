@@ -3,25 +3,25 @@ import styled from "styled-components";
 import axios from "axios";
 
 // 유저에 따른 마이페이지
-const UserDetailPage = () => {
+const MyPage = ({ setOpen }) => {
   const [id, setId] = useState("");
   const [nickname, setNickname] = useState("");
 
   // 유저 정보를 get 하는 함수
   const getUserInfo = () => {
     axios
-      .get(`/api/v1/members/${1}`)
+      .get(`${import.meta.env.VITE_BASE_URL}/185`)
       .then((res) => {
         setId(res.data.username);
         setNickname(res.data.nickname);
       })
       .catch((err) => {
-        alert(err);
+        console.log(err);
       });
   };
 
   const handleClickLogoutBtn = () => {
-    navigator("/login");
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -31,8 +31,6 @@ const UserDetailPage = () => {
   return (
     <>
       <St.UserDetailContainer>
-        <St.UserImg src="../src/asset/userImg.png" />
-
         <St.UserInfoContainer>
           <St.UserInfo>ID: {id}</St.UserInfo>
           <St.UserInfo>NICKNAME: {nickname}</St.UserInfo>
@@ -66,26 +64,26 @@ const St = {
     padding: 0.5rem 1.5rem;
     border-radius: 1rem;
 
-    color: ${({ theme }) => theme.colors.darkPink};
-    background-color: ${({ theme }) => theme.colors.white};
+    color: #cf576b;
+    background-color: white;
     font-size: 1.2rem;
   `,
   LogoutBtn: styled.button`
     margin: 1rem 0 0.5rem;
     padding: 0.5rem 1.5rem;
     border-radius: 1rem;
-    border: 0.3rem solid ${({ theme }) => theme.colors.white};
+    border: 0.3rem solid white;
 
-    background-color: ${({ theme }) => theme.colors.darkPink};
-    color: ${({ theme }) => theme.colors.white};
+    background-color: #cf576b;
+    color: white;
 
     font-size: 1.2rem;
 
     &:hover {
-      background-color: ${({ theme }) => theme.colors.white};
-      color: ${({ theme }) => theme.colors.darkPink};
+      background-color: white;
+      color: #cf576b;
     }
   `,
 };
 
-export default UserDetailPage;
+export default MyPage;
