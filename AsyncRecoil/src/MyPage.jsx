@@ -1,49 +1,44 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import axios from "axios";
+import { useRecoilValue } from "recoil";
+import { getUserInfoQuery } from "./recoil/atom";
 
 // 유저에 따른 마이페이지
 const MyPage = ({ setOpen }) => {
-  const [id, setId] = useState("");
-  const [nickname, setNickname] = useState("");
-
   // 유저 정보를 get 하는 함수
-  const getUserInfo = () => {
-    axios
-      .get(`${import.meta.env.VITE_BASE_URL}/185`)
-      .then((res) => {
-        setId(res.data.username);
-        setNickname(res.data.nickname);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+
+  const userInfo = useRecoilValue(getUserInfoQuery);
 
   const handleClickLogoutBtn = () => {
     setOpen(false);
   };
 
-  useEffect(() => {
-    getUserInfo();
-  }, []);
-
   return (
-    <>
-      <St.UserDetailContainer>
+    <St.UserDetailSection>
+      <St.UserDetailArticle>
         <St.UserInfoContainer>
-          <St.UserInfo>ID: {id}</St.UserInfo>
-          <St.UserInfo>NICKNAME: {nickname}</St.UserInfo>
+          <St.UserInfo>ID: {userInfo.username}</St.UserInfo>
+          <St.UserInfo>NICKNAME: {userInfo.nickname}</St.UserInfo>
         </St.UserInfoContainer>
-      </St.UserDetailContainer>
+      </St.UserDetailArticle>
 
       <St.LogoutBtn onClick={handleClickLogoutBtn}>로그아웃</St.LogoutBtn>
-    </>
+    </St.UserDetailSection>
   );
 };
 
 const St = {
-  UserDetailContainer: styled.article`
+  UserDetailSection: styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem 3rem;
+    border-radius: 2rem;
+
+    background-color: #cf576b;
+  `,
+  UserDetailArticle: styled.article`
     display: flex;
     justify-content: space-between;
     align-items: center;
