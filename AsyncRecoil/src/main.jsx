@@ -2,15 +2,15 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { RecoilRoot } from "recoil";
-import React from "react";
+import React, { Suspense } from "react";
+import Loading from "./Loading.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <>
-    <RecoilRoot>
-      <React.Suspense fallback={<div>Loading....</div>}>
+  <React.StrictMode>
+    <Suspense fallback={<Loading />}>
+      <RecoilRoot>
         <App />
-      </React.Suspense>
-    </RecoilRoot>
-    {/* <App /> */}
-  </>
+      </RecoilRoot>
+    </Suspense>
+  </React.StrictMode>
 );

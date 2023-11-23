@@ -1,12 +1,23 @@
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
-import { getUserInfoQuery } from "./recoil/atom";
+import { getUserInfoQuery } from "./recoil/selector";
 
 // 유저에 따른 마이페이지
 const MyPage = ({ setOpen }) => {
-  // 유저 정보를 get 하는 함수
+  // const [response, setResponse] = useState("");
 
-  const userInfo = useRecoilValue(getUserInfoQuery);
+  // // 유저 정보를 get 하는 함수
+  // const getUserInfo = () => {
+  //   try {
+  //     axios.get(`http://3.39.54.196/api/v1/members/300`).then((res) => {
+  //       setResponse(res.data);
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
+
+  const response = useRecoilValue(getUserInfoQuery);
 
   const handleClickLogoutBtn = () => {
     setOpen(false);
@@ -16,8 +27,8 @@ const MyPage = ({ setOpen }) => {
     <St.UserDetailSection>
       <St.UserDetailArticle>
         <St.UserInfoContainer>
-          <St.UserInfo>ID: {userInfo.username}</St.UserInfo>
-          <St.UserInfo>NICKNAME: {userInfo.nickname}</St.UserInfo>
+          <St.UserInfo>ID: {response.username}</St.UserInfo>
+          <St.UserInfo>NICKNAME: {response.nickname}</St.UserInfo>
         </St.UserInfoContainer>
       </St.UserDetailArticle>
 
