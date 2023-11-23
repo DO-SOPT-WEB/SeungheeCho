@@ -4,13 +4,17 @@ import "./index.css";
 import { RecoilRoot } from "recoil";
 import React, { Suspense } from "react";
 import Loading from "./Loading.jsx";
+import { ErrorBoundary } from "react-error-boundary";
+import Error from "./Error.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Suspense fallback={<Loading />}>
-      <RecoilRoot>
-        <App />
-      </RecoilRoot>
-    </Suspense>
+    <ErrorBoundary fallback={<Error />}>
+      <Suspense fallback={<Loading />}>
+        <RecoilRoot>
+          <App />
+        </RecoilRoot>
+      </Suspense>
+    </ErrorBoundary>
   </React.StrictMode>
 );
